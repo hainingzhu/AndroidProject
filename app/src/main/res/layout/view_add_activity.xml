@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <!-- 타임라인 뷰 -->
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4" >
+
+        <kr.mintech.sleep.tight.views.TimeLineView
+            android:id="@+id/view_time_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!-- Add Activity -->
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.2"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/list_did_item"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageButton 
+            android:id="@+id/btn_add_sleep"
+            android:layout_width="match_parent"
+	        android:layout_height="55dp"
+	        android:layout_marginLeft="6dp"
+	        android:paddingBottom="5dp"
+	        android:gravity="center"
+	        android:src="@drawable/addsleeptext"
+	        android:scaleType="centerInside"
+	        style="?android:attr/borderlessButtonStyle"/>
+        	
+        <Button
+		    android:id="@+id/btn_delete"
+		    android:layout_width="match_parent"
+		    android:layout_height="38dp"
+		    android:background="@drawable/inset_button"
+		    android:gravity="center"
+		    style="?android:attr/borderlessButtonStyle"
+		    android:textSize="11sp"
+		    android:text="Delete Events" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollview1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout_wtdiary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textviewToBedTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:text="Last night, I went to bed at "
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/buttonToBedTime"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignBaseline="@+id/textviewToBedTime"
+                android:layout_alignParentRight="true"
+                android:onClick="openTimeDialog"
+                android:paddingRight="16dp"
+                android:text="@string/button_pick_time"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textviewSleepLatency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:text="Minutes to fall asleep "
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/buttonSleepLatency"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignBaseline="@+id/textviewSleepLatency"
+                android:layout_alignParentRight="true"
+                android:clickable="false"
+                android:onClick="openDurationDialog"
+                android:text="@string/button_zero_mins"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textviewWakeUpTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:text="This morning, I woke up at "
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/buttonWakeUpTime"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignBaseline="@+id/textviewWakeUpTime"
+                android:layout_alignParentRight="true"
+                android:enabled="false"
+                android:clickable="false"
+                android:paddingRight="16dp"
+                android:hint="@string/button_pick_time"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textviewOutOfBed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:text="I finally got out of bed at "
+                android:textSize="18sp" />
+            <!-- android:onClick="openTimeDialog" -->
+
+            <Button
+                android:id="@+id/buttonOutOfBed"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignBaseline="@+id/textviewOutOfBed"
+                android:layout_alignParentRight="true"
+                android:enabled="false"
+                android:clickable="false"
+                android:hint="@string/button_pick_time"
+                android:paddingRight="16dp"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textviewNumWakening"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:text="Last night, I woke up "
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/edittextNumWakening"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textviewNumWakening"
+                android:layout_alignParentRight="true"
+                android:gravity="right"
+                android:hint="@string/button_zero_times"
+                android:inputType="number"
+                android:selectAllOnFocus="true"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textviewTimeStayedAwake"
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="16dp"
+                    android:text="How long have you stayed awake in total?"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/buttonTimeStayedAwake"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_alignBaseline="@+id/textviewTimeStayedAwake"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:clickable="false"
+                    android:enabled="false"
+                    android:hint="@string/button_zero_mins"
+                    android:onClick="openDurationDialog"
+                    android:paddingRight="16dp"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp" >
+
+            <TextView
+                android:id="@+id/textviewSleepQuality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:text="The overall sleep quality was "
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:id="@+id/radiogroup_sleepquality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textviewSleepQuality"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingTop="10dp" >
+
+                <RadioButton
+                    android:id="@+id/radio_qualty1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/sleepquality1_selector"
+                    android:gravity="center"
+                    android:text="Very Poor"
+                    android:textSize="11sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_qualty2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/sleepquality2_selector"
+                    android:gravity="center"
+                    android:text="Poor"
+                    android:textSize="11sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_qualty3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/sleepquality3_selector"
+                    android:gravity="center"
+                    android:text="Neutral"
+                    android:textSize="11sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_qualty4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/sleepquality4_selector"
+                    android:gravity="center"
+                    android:text="Good"
+                    android:textSize="11sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_qualty5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/sleepquality5_selector"
+                    android:gravity="center"
+                    android:text="Very Good"
+                    android:textSize="11sp" />
+            </RadioGroup>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp" >
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textviewActivity"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:paddingLeft="16dp"
+                    android:text="About 1 hour before going to bed, I did the following activities: "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/text_before_bed_act"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/textviewActivity"
+                    android:paddingLeft="16dp"
+                    android:singleLine="true"
+                    android:textSize="14sp"
+                    android:textColor="@color/Purple" />
+
+                <Button
+                    android:id="@+id/buttonActivity"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/textviewActivity"
+                    android:onClick="checkActivity"
+                    android:paddingRight="16dp"
+                    android:text="@string/button_check"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp" >
+
+            <TextView
+                android:id="@+id/textviewDisturbance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingLeft="16dp"
+                android:text="My sleep was disturbed by"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_sleep_disturb"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textviewDisturbance"
+                android:paddingLeft="16dp"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:textColor="@color/Purple" />
+
+            <Button
+                android:id="@+id/buttonDisturbance"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:onClick="checkDisturbance"
+                android:paddingRight="16dp"
+                android:text="@string/button_check"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp" >
+
+            <Button
+                android:id="@+id/buttonCancel"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:onClick="onCancelClick"
+                android:text="Cancel" />
+
+            <Button
+                android:id="@+id/buttonSave"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:onClick="onSaveClick"
+                android:text="Save" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

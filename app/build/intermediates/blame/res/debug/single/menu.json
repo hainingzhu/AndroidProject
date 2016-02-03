@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/menu/activity_before_bed.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/menu/activity_before_bed.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/menu/activity_sleep_disturbance.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/menu/activity_sleep_disturbance.xml"
+    }
+]

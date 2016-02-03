@@ -1,0 +1,146 @@
+[
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/view_act_edit_list_item.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/view_act_edit_list_item.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_select_before_bed_act.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_select_before_bed_act.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/view_select_before_bed_act_list_item.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/view_select_before_bed_act_list_item.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_start.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_start.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_date_time.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_date_time.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_before_bed.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_before_bed.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/view_delete_action_item_list.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/view_delete_action_item_list.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_main.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_main.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/fragment_get_text.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/fragment_get_text.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_time_activity_select.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_time_activity_select.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/view_add_activity.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/view_add_activity.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_user_info_register.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_user_info_register.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/view_summary.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/view_summary.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/view_time_list_list_item.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/view_time_list_list_item.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_before_bed_edit.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_before_bed_edit.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/fragment_dialog_duration.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/fragment_dialog_duration.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_sleep_disturbance.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_sleep_disturbance.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/view_edit_track_list_item.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/view_edit_track_list_item.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_summary_bin_info.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_summary_bin_info.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_add_activity.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_add_activity.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/view_bottom_chart_list_item.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/view_bottom_chart_list_item.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/view_sleep_summary_bin_act_list_item.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/view_sleep_summary_bin_act_list_item.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/view_time_line.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/view_time_line.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_add_sleep_diary.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_add_sleep_diary.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_add_duration.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_add_duration.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/view_action_list_item.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/view_action_list_item.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/view_disturb_list_item.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/view_disturb_list_item.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/widget_lock_screen.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/widget_lock_screen.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/view_comparison.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/view_comparison.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_setting.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_setting.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_edit_track.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_edit_track.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_top.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_top.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/fragment_dialog_timepicker.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/fragment_dialog_timepicker.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_delete_action.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_delete_action.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/view_top5_chart_list_item.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/view_top5_chart_list_item.xml"
+    },
+    {
+        "merged": "/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/res/merged/debug/layout/act_setting_edit_act.xml",
+        "source": "/Users/hbz5037/Desktop/AndroidProject/app/src/main/res/layout/act_setting_edit_act.xml"
+    }
+]

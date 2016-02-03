@@ -1,0 +1,1339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- MENU BUTTON -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:orientation="horizontal"
+        android:background="@color/LightGray" >
+        <Button
+            android:id="@+id/btn_sleep_quality"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            style="?android:attr/borderlessButtonStyle"
+		    android:textSize="11sp"
+		    android:textAllCaps="true"
+            android:text="Sleep Quality" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/MediumGray" />
+        <Button
+            android:id="@+id/btn_daytime_activity"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            style="?android:attr/borderlessButtonStyle"
+		    android:textSize="11sp"
+		    android:textAllCaps="true"
+            android:text="Daytime Activity" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/MediumGray" />
+        <Button
+            android:id="@+id/btn_before_bed_activity"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            style="?android:attr/borderlessButtonStyle"
+		    android:textSize="11sp"
+		    android:textAllCaps="true"
+            android:text="Before Bed Activity" />
+    </LinearLayout>
+    
+    <!-- POOR | NEUTRAL | GOOD -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/White"
+        android:gravity="center"
+        android:orientation="vertical" >
+		<TextView
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:padding="3dp"
+		    android:gravity="center_horizontal"
+		    android:text="Categories based on your self-reported sleep quality"
+		    android:textSize="13sp" >
+		</TextView>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/comparison_info" />
+    </LinearLayout>
+    
+    <!-- CHART LISTVIEW -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/comparison_scrollview" >
+
+        <LinearLayout
+        	android:id="@+id/main_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/LightGray"
+            android:orientation="vertical" >
+            
+            <LinearLayout
+        	android:id="@+id/sleep_quality_comparison"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/LightGray"
+            android:orientation="vertical" >
+
+	            <!-- SLEEP QUALITY -->
+	
+	            <TextView
+				    android:id="@+id/text_sleepQuality"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:padding="8dp"
+				    android:gravity="left"
+				    android:text="Your sleep quality for the tracked days"
+				    android:textSize="13sp" />				 
+	
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="@dimen/comparison_list_height"
+	                android:orientation="horizontal"
+	                android:layout_margin="8dp" >
+		                
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:orientation="vertical" >
+	
+		                <TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="0dp"
+		                    android:layout_weight="1"
+		                    android:paddingLeft="20dp"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Good"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="GOOD" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:paddingLeft="20dp"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/NeutralText"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="NEUTRAL" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:paddingLeft="20dp"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Poor"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="POOR" />
+	                </LinearLayout>
+	                
+	                <ListView
+	                    android:id="@+id/chart_comparison_sleep_quality"
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1.8"
+	                    android:gravity="center_vertical"
+	                    android:divider="@null"
+	                    android:dividerHeight="0dp" />
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:orientation="vertical" >
+	
+	                    <TextView
+	                        android:id="@+id/text_comparision_sleep_quality_good"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	
+	                    <TextView
+	                        android:id="@+id/text_comparision_sleep_quality_neutral"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	
+	                    <TextView
+	                        android:id="@+id/text_comparision_sleep_quality_bad"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                </LinearLayout>
+	            </LinearLayout>
+	
+	            <View
+	                android:layout_width="match_parent"
+	                android:layout_height="1dp"
+	                android:layout_margin="10dp"
+	                android:background="#A2A2A2" />
+	
+	            <!-- Sleep Duration -->
+	            
+	            <TextView
+				    android:id="@+id/text_sleepDuration"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:paddingBottom="8dp"
+				    android:paddingLeft="8dp"
+				    android:paddingRight="8dp"
+				    android:gravity="left"
+				    android:text="Average sleep duration for each category"
+				    android:textSize="13sp" />				 
+	
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="@dimen/comparison_list_height"
+	                android:orientation="horizontal"
+	                android:layout_margin="8dp" >
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:orientation="vertical" >
+	
+		                <TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="0dp"
+		                    android:layout_weight="1"
+		                    android:paddingLeft="20dp"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Good"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="GOOD" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:paddingLeft="20dp"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/NeutralText"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="NEUTRAL" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:paddingLeft="20dp"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Poor"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="POOR" />
+	                </LinearLayout>
+	            
+	                <ListView
+	                    android:id="@+id/chart_comparison_sleep_duration"
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1.8"
+	                    android:layout_gravity="center_vertical"
+	                    android:divider="@null"
+	                    android:dividerHeight="0dp" />
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:orientation="vertical" >
+	
+	                    <TextView
+	                        android:id="@+id/text_comparision_sleep_duration_good"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                    
+	                    <TextView
+	                        android:id="@+id/text_comparision_sleep_duration_neutral"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	
+	                    <TextView
+	                        android:id="@+id/text_comparision_sleep_duration_bad"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                </LinearLayout>
+	            </LinearLayout>
+	
+	            <View
+	                android:layout_width="match_parent"
+	                android:layout_height="1dp"
+	                android:layout_margin="10dp"
+	                android:background="#A2A2A2" />
+	
+	            <!-- Sleep Efficiency -->
+	            
+	            <TextView
+				    android:id="@+id/text_sleepDuration"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:paddingBottom="8dp"
+				    android:paddingLeft="8dp"
+				    android:paddingRight="8dp"
+				    android:gravity="left"
+				    android:text="Average sleep efficiency for each category"
+				    android:textSize="13sp" />				 
+	
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="@dimen/comparison_list_height"
+	                android:orientation="horizontal"
+	                android:layout_margin="8dp" >
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:orientation="vertical" >
+	
+		                <TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="0dp"
+		                    android:layout_weight="1"
+		                    android:paddingLeft="20dp"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Good"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="GOOD" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:paddingLeft="20dp"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/NeutralText"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="NEUTRAL" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:paddingLeft="20dp"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Poor"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="POOR" />
+	                </LinearLayout>
+	
+	                <ListView
+	                    android:id="@+id/chart_comparison_sleep_efficiency"
+	                    android:layout_width="0dp"
+	                    android:layout_height="wrap_content"
+	                    android:layout_gravity="center"
+	                    android:layout_weight="1.8"
+	                    android:divider="@null"
+	                    android:dividerHeight="0dp" />
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:orientation="vertical" >
+	
+	                    <TextView
+	                        android:id="@+id/text_comparision_sleep_efficiency_good"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	
+	                    <TextView
+	                        android:id="@+id/text_comparision_sleep_efficiency_neutral"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	
+	                    <TextView
+	                        android:id="@+id/text_comparision_sleep_efficiency_bad"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                </LinearLayout>
+	            </LinearLayout>
+	
+	            <View
+	                android:layout_width="match_parent"
+	                android:layout_height="1dp"
+	                android:layout_margin="10dp"
+	                android:background="#A2A2A2" />
+	
+	            <!-- Time to fall asleep -->
+	
+	            <TextView
+				    android:id="@+id/text_sleepDuration"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:paddingBottom="8dp"
+				    android:paddingLeft="8dp"
+				    android:paddingRight="8dp"
+				    android:gravity="left"
+				    android:text="Average time to fall asleep for each category"
+				    android:textSize="13sp" />				 
+	
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="@dimen/comparison_list_height"
+	                android:orientation="horizontal"
+	                android:layout_margin="8dp" >
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:orientation="vertical" >
+	
+		                <TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="0dp"
+		                    android:layout_weight="1"
+		                    android:paddingLeft="20dp"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Good"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="GOOD" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:paddingLeft="20dp"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/NeutralText"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="NEUTRAL" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:paddingLeft="20dp"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Poor"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="POOR" />
+	                </LinearLayout>
+	
+	                <ListView
+	                    android:id="@+id/chart_comparison_time_to_fall_asleep"
+	                    android:layout_width="0dp"
+	                    android:layout_height="wrap_content"
+	                    android:layout_gravity="center"
+	                    android:layout_weight="1.8"
+	                    android:divider="@null"
+	                    android:dividerHeight="0dp" />
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:orientation="vertical" >
+	
+	                    <TextView
+	                        android:id="@+id/text_comparision_sleep_time_to_fall_asleep_good"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	
+	                    <TextView
+	                        android:id="@+id/text_comparision_sleep_time_to_fall_asleep_neutral"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	
+	                    <TextView
+	                        android:id="@+id/text_comparision_sleep_time_to_fall_asleep_bad"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                </LinearLayout>
+	            </LinearLayout>
+	
+	            <View
+	                android:layout_width="match_parent"
+	                android:layout_height="1dp"
+	                android:layout_margin="10dp"
+	                android:background="#A2A2A2" />
+	        </LinearLayout>
+
+            <LinearLayout
+	        	android:id="@+id/daytime_activity_comparison"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:background="@color/LightGray"
+	            android:orientation="vertical" >
+            
+	        </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hidden_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+	            
+            	<!--  -->
+	            <!-- CAFFEIN / MEAL / EXERCISE -->
+	            <!--  -->	
+	
+	            <!-- CAFFEINATED BEVERAGE -->
+	            <LinearLayout
+	                android:id="@+id/daytime_activity_caffeine"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal"
+	                android:paddingTop="5dp"
+	                android:paddingBottom="5dp" >
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:gravity="center_vertical|center"
+	                    android:orientation="vertical">
+	                	<ImageView 
+	                	    android:layout_width="25dp"
+	                	    android:layout_height="25dp"
+	                	    android:padding="3dp"
+	                	    android:src="@drawable/coffee"/>
+	                	<TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="wrap_content"
+		                    android:gravity="center_vertical|center"
+		                    android:text="CAFFEINATED\nBEVERAGE"
+		                    android:textSize="12sp" />
+	                </LinearLayout>                
+	                
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="0.8"
+	                    android:orientation="vertical" >
+	
+		                <TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="0dp"
+		                    android:layout_weight="1"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Good"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="GOOD" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/NeutralText"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="NEUTRAL" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Poor"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="POOR" />
+	                </LinearLayout>
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="2"
+	                    android:orientation="vertical" >
+	
+	                    <TextView
+	                        android:id="@+id/text_comparison_caffenated_beverage_good"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                    <TextView
+	                        android:id="@+id/text_comparison_caffenated_beverage_neutral"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                    <TextView
+	                        android:id="@+id/text_comparison_caffenated_beverage_bad"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                </LinearLayout>
+	            </LinearLayout>
+	
+				<View
+	                android:layout_width="match_parent"
+	                android:layout_height="1dp"
+	                android:layout_margin="10dp"
+	                android:background="#A2A2A2" />	            
+	
+	            <!-- MEAL -->
+	
+	            <LinearLayout
+                    android:id="@+id/daytime_activity_meal"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal"
+	                android:paddingTop="5dp"
+	                android:paddingBottom="5dp" >
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:gravity="center_vertical|center"
+	                    android:orientation="vertical">
+	                	<ImageView 
+	                	    android:layout_width="25dp"
+	                	    android:layout_height="25dp"
+	                	    android:padding="3dp"
+	                	    android:src="@drawable/meal"/>
+	                	<TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="wrap_content"
+		                    android:gravity="center_vertical|center"
+		                    android:text="MEAL"
+		                    android:textSize="12sp" />
+	                </LinearLayout>
+	                    
+	                
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="0.8"
+	                    android:orientation="vertical" >
+	
+		                <TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="0dp"
+		                    android:layout_weight="1"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Good"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="GOOD" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/NeutralText"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="NEUTRAL" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Poor"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="POOR" />
+	                </LinearLayout>
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="2"
+	                    android:orientation="vertical" >
+	
+	                    <TextView
+		                    android:id="@+id/text_comparison_meal_good"
+		                    android:layout_width="match_parent"
+		                    android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                    <TextView
+	                        android:id="@+id/text_comparison_meal_neutral"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                    <TextView
+	                        android:id="@+id/text_comparison_meal_bad"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                </LinearLayout>
+				</LinearLayout>
+	
+	            <View
+	                android:layout_width="match_parent"
+	                android:layout_height="1dp"
+	                android:layout_margin="10dp"
+	                android:background="#A2A2A2" />
+	
+	            <!-- EXERCISE -->
+	
+	            <LinearLayout
+	                android:id="@+id/daytime_activity_exercise"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal"
+	                android:paddingTop="5dp"
+	                android:paddingBottom="5dp" >
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:gravity="center_vertical|center"
+	                    android:orientation="vertical">
+	                	<ImageView 
+	                	    android:layout_width="25dp"
+	                	    android:layout_height="25dp"
+	                	    android:padding="3dp"
+	                	    android:src="@drawable/exercise"/>
+	                	<TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="wrap_content"
+		                    android:gravity="center_vertical|center"
+		                    android:text="EXERCISE"
+		                    android:textSize="12sp" />
+	                </LinearLayout>
+	               
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="0.8"
+	                    android:orientation="vertical" >
+	
+		                <TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="0dp"
+		                    android:layout_weight="1"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Good"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="GOOD" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/NeutralText"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="NEUTRAL" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Poor"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="POOR" />
+	                </LinearLayout>
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="2"
+	                    android:orientation="vertical" >
+	                    <TextView
+	                        android:id="@+id/text_comparison_exercise_good"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                    <TextView
+	                        android:id="@+id/text_comparison_exercise_neutral"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                    <TextView
+	                        android:id="@+id/text_comparison_exercise_bad"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                </LinearLayout>
+	            </LinearLayout>
+	
+		        <View
+		            android:layout_width="match_parent"
+		            android:layout_height="1dp"
+		            android:layout_margin="10dp"
+		            android:background="#A2A2A2" />
+	        
+	            <!-- ALCOHOL -->
+	
+		        <LinearLayout
+		            android:id="@+id/daytime_activity_alcohol"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:orientation="horizontal"
+		            android:paddingTop="5dp"
+		            android:paddingBottom="5dp" >
+		
+		            <LinearLayout
+		                android:layout_width="0dp"
+		                android:layout_height="match_parent"
+		                android:layout_weight="1"
+		                android:gravity="center_vertical|center"
+		                android:orientation="vertical">
+		            	<ImageView 
+		            	    android:layout_width="25dp"
+		            	    android:layout_height="25dp"
+		            	    android:padding="3dp"
+		            	    android:src="@drawable/alcohol"/>
+		            	<TextView
+		                 android:layout_width="match_parent"
+		                 android:layout_height="wrap_content"
+		                 android:gravity="center_vertical|center"
+		                 android:text="ALCOHOL"
+		                 android:textSize="12sp" />
+		            </LinearLayout>
+		           
+		            <LinearLayout
+		                android:layout_width="0dp"
+		                android:layout_height="match_parent"
+		                android:layout_weight="0.8"
+		                android:orientation="vertical" >
+		
+		             <TextView
+		                 android:layout_width="match_parent"
+		                 android:layout_height="0dp"
+		                 android:layout_weight="1"
+		                 android:layout_gravity="left"
+		                 android:gravity="center_vertical"
+		                 android:textColor="@color/Good"
+		                 android:textSize="12sp"
+		                 android:textStyle="bold"
+		                 android:text="GOOD" />
+		
+		                <TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="0dp"
+		                    android:layout_weight="1"
+		                    android:layout_gravity="left"
+		                 android:gravity="center_vertical"
+		                 android:textColor="@color/NeutralText"
+		                 android:textSize="12sp"
+		                 android:textStyle="bold"
+		                 android:text="NEUTRAL" />
+		
+		                <TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="0dp"
+		                    android:layout_weight="1"
+		                    android:layout_gravity="left"
+		                 android:gravity="center_vertical"
+		                 android:textColor="@color/Poor"
+		                 android:textSize="12sp"
+		                 android:textStyle="bold"
+		                 android:text="POOR" />
+		            </LinearLayout>
+		
+		            <LinearLayout
+		                android:layout_width="0dp"
+		                android:layout_height="match_parent"
+		                android:layout_weight="2"
+		                android:orientation="vertical" >
+		                <TextView
+		                    android:id="@+id/text_comparison_alcohol_good"
+		                    android:layout_width="match_parent"
+		                    android:layout_height="0dp"
+		                    android:layout_weight="1"
+		                    android:textSize="12sp"
+		                    android:gravity="center_vertical"
+		                    android:text="" />
+		                <TextView
+		                    android:id="@+id/text_comparison_alcohol_neutral"
+		                    android:layout_width="match_parent"
+		                    android:layout_height="0dp"
+		                    android:layout_weight="1"
+		                    android:textSize="12sp"
+		                    android:gravity="center_vertical"
+		                    android:text="" />
+		                <TextView
+		                    android:id="@+id/text_comparison_alcohol_bad"
+		                    android:layout_width="match_parent"
+		                    android:layout_height="0dp"
+		                    android:layout_weight="1"
+		                    android:textSize="12sp"
+		                    android:gravity="center_vertical"
+		                    android:text="" />
+		            </LinearLayout>
+		        </LinearLayout>
+		        
+		        <View
+		            android:layout_width="match_parent"
+		            android:layout_height="1dp"
+		            android:layout_margin="10dp"
+		            android:background="#A2A2A2" />
+		        
+		        <!-- MEDICATION -->
+	
+	            <LinearLayout
+	                android:id="@+id/daytime_activity_medication"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal"
+	                android:paddingTop="5dp"
+	                android:paddingBottom="5dp" >
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:gravity="center_vertical|center"
+	                    android:orientation="vertical">
+	                	<ImageView 
+	                	    android:layout_width="25dp"
+	                	    android:layout_height="25dp"
+	                	    android:padding="3dp"
+	                	    android:src="@drawable/med"/>
+	                	<TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="wrap_content"
+		                    android:gravity="center_vertical|center"
+		                    android:text="MEDICATION"
+		                    android:textSize="12sp" />
+	                </LinearLayout>
+	               
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="0.8"
+	                    android:orientation="vertical" >
+	
+		                <TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="0dp"
+		                    android:layout_weight="1"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Good"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="GOOD" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/NeutralText"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="NEUTRAL" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Poor"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="POOR" />
+	                </LinearLayout>
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="2"
+	                    android:orientation="vertical" >
+	                    <TextView
+	                        android:id="@+id/text_comparison_medication_good"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                    <TextView
+	                        android:id="@+id/text_comparison_medication_neutral"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                    <TextView
+	                        android:id="@+id/text_comparison_medication_bad"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                </LinearLayout>
+	            </LinearLayout>
+	
+		        <View
+		            android:layout_width="match_parent"
+		            android:layout_height="1dp"
+		            android:layout_margin="10dp"
+		            android:background="#A2A2A2" />
+		        
+		        <!-- TOBACCO -->
+	
+	            <LinearLayout
+	                android:id="@+id/daytime_activity_tobacco"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal"
+	                android:paddingTop="5dp"
+	                android:paddingBottom="5dp" >
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:gravity="center_vertical|center"
+	                    android:orientation="vertical">
+	                	<ImageView 
+	                	    android:layout_width="25dp"
+	                	    android:layout_height="25dp"
+	                	    android:padding="3dp"
+	                	    android:src="@drawable/tobacco"/>
+	                	<TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="wrap_content"
+		                    android:gravity="center_vertical|center"
+		                    android:text="TOBACCO"
+		                    android:textSize="12sp" />
+	                </LinearLayout>
+	               
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="0.8"
+	                    android:orientation="vertical" >
+	
+		                <TextView
+		                    android:layout_width="match_parent"
+		                    android:layout_height="0dp"
+		                    android:layout_weight="1"
+		                    android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Good"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="GOOD" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/NeutralText"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="NEUTRAL" />
+	
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:layout_gravity="left"
+		                    android:gravity="center_vertical"
+		                    android:textColor="@color/Poor"
+		                    android:textSize="12sp"
+		                    android:textStyle="bold"
+		                    android:text="POOR" />
+	                </LinearLayout>
+	
+	                <LinearLayout
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="2"
+	                    android:orientation="vertical" >
+	                    <TextView
+	                        android:id="@+id/text_comparison_tobacco_good"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                    <TextView
+	                        android:id="@+id/text_comparison_tobacco_neutral"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                    <TextView
+	                        android:id="@+id/text_comparison_tobacco_bad"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="0dp"
+	                        android:layout_weight="1"
+	                        android:textSize="12sp"
+	                        android:gravity="center_vertical"
+	                        android:text="" />
+	                </LinearLayout>
+	            </LinearLayout>
+	
+		        <View
+		            android:layout_width="match_parent"
+		            android:layout_height="1dp"
+		            android:layout_margin="10dp"
+		            android:background="#A2A2A2" />
+            </LinearLayout>
+            
+            <!-- BEFORE BED ACTIVITIES -->
+            
+            <LinearLayout
+	        	android:id="@+id/beforebed_activity_comparison"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:background="@color/LightGray"
+	            android:orientation="vertical" >
+	            
+                <TextView
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:padding="8dp"
+				    android:gravity="left"
+				    android:text="Top 5 Before-Bed Activities for each sleep quality category"
+				    android:textSize="13sp" >
+				</TextView>
+				
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal"
+	                android:paddingTop="5dp"
+	                android:paddingBottom="5dp">
+	
+	                <TextView
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:gravity="center_vertical|center_horizontal"
+	                    android:textColor="@color/Good"
+	                    android:textSize="12sp"
+	                    android:textStyle="bold"
+	                    android:text="GOOD" />
+	                <ListView
+	                    android:id="@+id/chart_beforebed_activity_comparison_good"
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1.4"
+	                    android:gravity="center_vertical"
+	                    android:divider="@null"
+	                    android:dividerHeight="0dp" />
+	
+	                <LinearLayout
+	                    android:id="@+id/layout_beforebed_activity_top5_good"
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1.4"
+	                    android:gravity="center_vertical"
+	                    android:orientation="vertical" >
+	                </LinearLayout>
+	            </LinearLayout>
+	        	
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal"
+	                android:paddingTop="5dp"
+	                android:paddingBottom="5dp" >
+	
+	                <TextView
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:gravity="center_vertical|center_horizontal"
+	                    android:textColor="@color/NeutralText"
+	                    android:textSize="12sp"
+	                    android:textStyle="bold"
+	                    android:text="NEUTRAL" />
+	                
+	                <ListView
+	                    android:id="@+id/chart_beforebed_activity_comparison_neutral"
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1.4"
+	                    android:gravity="center_vertical"
+	                    android:divider="@null"
+	                    android:dividerHeight="0dp" />
+	
+	                <LinearLayout
+	                    android:id="@+id/layout_beforebed_activity_top5_neutral"
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1.4"
+	                    android:orientation="vertical" >
+	                </LinearLayout>
+	        	</LinearLayout>
+	        	
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal"
+	                android:paddingTop="5dp"
+	                android:paddingBottom="25dp" >
+	
+	                <TextView
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1"
+	                    android:gravity="center_vertical|center_horizontal"
+	                    android:textColor="@color/Poor"
+	                    android:textSize="12sp"
+	                    android:textStyle="bold"
+	                    android:text="POOR" />
+	                
+	                <ListView
+	                    android:id="@+id/chart_beforebed_activity_comparison_poor"
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1.4"
+	                    android:gravity="center_vertical"
+	                    android:divider="@null"
+	                    android:dividerHeight="0dp" />
+	
+	                <LinearLayout
+	                    android:id="@+id/layout_beforebed_activity_top5_poor"
+	                    android:layout_width="0dp"
+	                    android:layout_height="match_parent"
+	                    android:layout_weight="1.4"
+	                    android:orientation="vertical" >	
+	                </LinearLayout>
+	        	</LinearLayout>
+	        </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

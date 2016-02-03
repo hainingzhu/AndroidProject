@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Black">#000000</color>
+    <color name="DarkGray">#666666</color>
+    <color name="Good">#76C747</color>
+    <color name="HotPink">#FF3366</color>
+    <color name="LightBlueforText">#2CA6DF</color>
+    <color name="LightGray">#E6E6E6</color>
+    <color name="MarineBlue">#0033FF</color>
+    <color name="MediumGray">#C1C1C1</color>
+    <color name="Neutral">#FFE443</color>
+    <color name="NeutralText">#FFC600</color>
+    <color name="Poor">#D45A48</color>
+    <color name="Purple">#8600C4</color>
+    <color name="SleepQ1">#990000</color>
+    <color name="SleepQ2">#DC4713</color>
+    <color name="SleepQ3">#FFCC00</color>
+    <color name="SleepQ4">#99CC00</color>
+    <color name="SleepQ5">#339900</color>
+    <color name="TickColor">#878787</color>
+    <color name="White">#FFFFFF</color>
+    <color name="YesterdayColor">#D4D4D4</color>
+    <color name="number_picker_color">#FFFFFF</color>
+    <color name="summary_list_item_clicked">#8e8e8e</color>
+    <color name="summary_list_item_normal">#d4d4d4</color>
+    <color name="time_line_act1">#88ff8385</color>
+    <color name="time_line_act2">#88268988</color>
+    <color name="time_line_act3">#88002354</color>
+    <color name="time_line_act4">#88878b00</color>
+    <color name="time_line_alcohol">#88a60010</color>
+    <color name="time_line_caffeine">#883e1c15</color>
+    <color name="time_line_current_time">#8800FFFF</color>
+    <color name="time_line_exercise">#880000FF</color>
+    <color name="time_line_meal">#88278d00</color>
+    <color name="time_line_medication">#88ff9700</color>
+    <color name="time_line_sleep">#88878787</color>
+    <color name="time_line_tobacco">#885f118a</color>
+    <color name="transparent_color">#66000000</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="bar_height">4dp</dimen>
+    <dimen name="comparison_list_height">51dp</dimen>
+    <dimen name="time_line_icon_dimen">5dp</dimen>
+    <dimen name="widget_margin">8dp</dimen>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">SleepTight</string>
+    <string name="button_add">Add new item</string>
+    <string name="button_addsleep">How was your sleep last night?</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_check">Check</string>
+    <string name="button_delete">Delete item</string>
+    <string name="button_pick_time">Pick time</string>
+    <string name="button_set">Set</string>
+    <string name="button_zero_mins">0 mins</string>
+    <string name="button_zero_times">0 times</string>
+    <string name="count_Activity">Activity count</string>
+    <string name="count_Disturbance">Disturbance count</string>
+    <string name="count_SelActivity">Selected activity count</string>
+    <string name="count_SelDisturbance">Selected disturbance count</string>
+    <string name="extra_displayDate">Display date</string>
+    <string name="extra_fromSettings">From the settings activity</string>
+    <string name="header_addActivity">Add activity</string>
+    <string name="header_addDuration">Pick start time and end time</string>
+    <string name="header_addSleepDisturbance">Add sleep disturbance</string>
+    <string name="header_sleepLatency">Time to fall asleep</string>
+    <string name="header_timeStayedAwake">How long did you stay awake?</string>
+    <string name="menu_settings">Settings</string>
+    <string name="name_Activity">Activity</string>
+    <string name="name_Disturbance">Disturbance></string>
+    <string name="name_SelActivity">Name of the selected activity</string>
+    <string name="name_SelDisturbance">Name of the selected disturbance</string>
+    <string name="pref_Activity">Preference activity</string>
+    <string name="pref_Disturbance">Preference disturbance</string>
+    <string name="pref_Main">Preference Main Activity</string>
+    <string name="prefkey_DiaryLastEditDay">Wake time diary last edit day</string>
+    <string name="prefkey_OutBedTime">Out of Bed Time</string>
+    <string name="prefkey_SleepDuration">Sleep Duration</string>
+    <string name="prefkey_SleepQuality">Sleep Quality</string>
+    <string name="prefkey_ToBedTime">To Bed Time</string>
+    <string name="prefkey_ToSleepTime">To Sleep Time</string>
+    <string name="prefkey_WakeUpTime">Wake Up Time</string>
+    <string name="tab_addActivity">Add Activity</string>
+    <string name="tab_comparison">Comparison</string>
+    <string name="tab_sleepSummary">Sleep Summary</string>
+    <string name="title_activity_activity_before_bed">Activity Before Bed Time</string>
+    <string name="title_activity_medication">Medication</string>
+    <string name="title_activity_sleep_disturbance">Sleep Disturbance</string>
+    <string name="title_activity_tab_test">TabTestActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="transparent_background_dialog_activity" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/transparent_color</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

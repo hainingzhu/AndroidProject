@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp" >
+
+        <Button
+            android:id="@+id/buttonAddActivity"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:onClick="openAddActivity"
+            android:text="@string/button_add" />
+
+        <Button
+            android:id="@+id/buttonDeleteActivity"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:hint="@string/button_delete"
+            android:onClick="onDeleteActivity" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1_activityBeforeBedTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp" >
+
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:onClick="cancelActivity"
+            android:text="Cancel" />
+
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:onClick="saveActivity"
+            android:text="Save" />
+    </LinearLayout>
+
+</LinearLayout>

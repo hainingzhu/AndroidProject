@@ -1,0 +1,50 @@
+<resources>
+
+    <color name="transparent_color">#66000000</color>
+    <color name="number_picker_color">#FFFFFF</color>
+
+    <!-- Summary List Item -->
+    <color name="summary_list_item_normal">#d4d4d4</color>
+    <color name="summary_list_item_clicked">#8e8e8e</color>
+
+    <!-- Time Line Color -->
+    <color name="time_line_sleep">#88878787</color>
+    <color name="time_line_caffeine">#883e1c15</color>
+    <color name="time_line_meal">#88278d00</color>
+    <color name="time_line_medication">#88ff9700</color>
+    <color name="time_line_alcohol">#88a60010</color>
+    <color name="time_line_exercise">#880000FF</color>
+    <color name="time_line_tobacco">#885f118a</color>
+    <color name="time_line_act1">#88ff8385</color>
+    <color name="time_line_act2">#88268988</color>
+    <color name="time_line_act3">#88002354</color>
+    <color name="time_line_act4">#88878b00</color>
+    <color name="time_line_current_time">#8800FFFF</color>
+
+    <!-- LockScreen Widget -->
+    <color name="TickColor">#878787</color>
+    <color name="LightGray">#E6E6E6</color>
+    <color name="YesterdayColor">#D4D4D4</color>
+    <color name="MediumGray">#C1C1C1</color>
+    <color name="DarkGray">#666666</color>
+    <color name="White">#FFFFFF</color>
+    <color name="Black">#000000</color>
+    <color name="SleepQ1">#990000</color>
+    <color name="SleepQ2">#DC4713</color>
+    <color name="SleepQ3">#FFCC00</color>
+    <color name="SleepQ4">#99CC00</color>
+    <color name="SleepQ5">#339900</color>
+    <color name="HotPink">#FF3366</color>
+    <color name="MarineBlue">#0033FF</color>
+    <color name="Purple">#8600C4</color>
+    
+    <!-- Sleep Quality Category -->
+    <color name="Good">#76C747</color>
+    <color name="Neutral">#FFE443</color>
+    <color name="NeutralText">#FFC600</color>
+    <color name="Poor">#D45A48</color>
+    
+    <!-- Fragment Color -->
+    <color name="LightBlueforText">#2CA6DF</color>
+
+</resources>

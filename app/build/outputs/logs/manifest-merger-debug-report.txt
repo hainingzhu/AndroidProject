@@ -1,0 +1,273 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:2:1-164:12
+	xmlns:android
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:2:11-69
+	package
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:3:5-37
+		INJECTED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:5:5-30
+		INJECTED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml
+	android:versionCode
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:4:5-28
+		INJECTED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml
+uses-sdk
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v4:23.0.0] /Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/AndroidManifest.xml:20:5-43
+	android:targetSdkVersion
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:9:9-38
+		INJECTED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:8:9-35
+		INJECTED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:11:5-67
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:11:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:12:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:13:5-81
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:13:22-78
+application
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:15:5-162:19
+MERGED from [com.android.support:support-v4:23.0.0] /Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/AndroidManifest.xml:22:5-20
+	android:label
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:18:9-41
+	android:allowBackup
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:16:9-35
+	android:icon
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:17:9-45
+	android:theme
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:19:9-40
+activity#kr.mintech.sleep.tight.activities.MainActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:35:9-38:52
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:38:13-49
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:36:13-74
+	android:launchMode
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:37:13-43
+activity#kr.mintech.sleep.tight.activities.UserInfoRegister
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:39:9-43:40
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:42:13-49
+	android:noHistory
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:43:13-37
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:40:13-78
+	android:launchMode
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:41:13-43
+activity#kr.mintech.sleep.tight.activities.popups.AddDurationAcitivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:44:9-48:77
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:47:13-49
+	android:theme
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:48:13-74
+	android:hardwareAccelerated
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:46:13-47
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:45:13-89
+activity#kr.mintech.sleep.tight.activities.popups.TimeActivitySelectActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:49:9-53:77
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:52:13-49
+	android:theme
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:53:13-74
+	android:hardwareAccelerated
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:51:13-47
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:50:13-95
+activity#kr.mintech.sleep.tight.activities.popups.AddActionActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:54:9-58:77
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:57:13-49
+	android:theme
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:58:13-74
+	android:hardwareAccelerated
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:56:13-47
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:55:13-86
+activity#kr.mintech.sleep.tight.activities.popups.DeleteActionActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:59:9-62:77
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:61:13-49
+	android:theme
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:62:13-74
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:60:13-89
+activity#kr.mintech.sleep.tight.activities.sleepdiarys.SummaryBinInfoActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:63:9-66:77
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:65:13-49
+	android:theme
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:66:13-74
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:64:13-96
+activity#kr.mintech.sleep.tight.activities.popups.DeleteTracksActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:67:9-70:77
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:69:13-49
+	android:theme
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:70:13-74
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:68:13-89
+activity#kr.mintech.sleep.tight.activities.sleepdiarys.AddSleepDiaryActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:74:9-76:52
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:76:13-49
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:75:13-95
+activity#kr.mintech.sleep.tight.activities.sleepdiarys.SelectBeforeBedActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:77:9-80:77
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:79:13-49
+	android:theme
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:80:13-74
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:78:13-97
+activity#kr.mintech.sleep.tight.activities.sleepdiarys.SelectSleepDisturbActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:81:9-84:77
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:83:13-49
+	android:theme
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:84:13-74
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:82:13-100
+activity#kr.mintech.sleep.tight.fragments.DateSpinnerTimeActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:85:9-88:77
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:87:13-49
+	android:theme
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:88:13-74
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:86:13-84
+activity#kr.mintech.sleep.tight.activities.settings.SettingActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:92:9-94:52
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:94:13-49
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:93:13-86
+activity#kr.mintech.sleep.tight.activities.settings.BeforeBedActEditActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:95:9-97:52
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:97:13-49
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:96:13-95
+activity#kr.mintech.sleep.tight.activities.settings.SleepDisturbEditActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:98:9-100:52
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:100:13-49
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:99:13-95
+activity#kr.mintech.sleep.tight.activities.settings.EditActListActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:101:9-103:52
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:103:13-49
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:102:13-90
+activity#kr.mintech.sleep.tight.activities.settings.AddSleepDisturbActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:104:9-109:63
+	android:windowSoftInputMode
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:109:13-60
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:107:13-49
+	android:theme
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:108:13-74
+	android:hardwareAccelerated
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:106:13-47
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:105:13-94
+activity#kr.mintech.sleep.tight.activities.settings.AddBeforeBedActActivity
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:110:9-115:63
+	android:windowSoftInputMode
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:115:13-60
+	android:screenOrientation
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:113:13-49
+	android:theme
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:114:13-74
+	android:hardwareAccelerated
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:112:13-47
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:111:13-94
+receiver#kr.mintech.sleep.tight.widgets.LockScreenReceiver
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:118:9-125:20
+	android:label
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:121:13-45
+	android:description
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:120:13-51
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:119:13-55
+meta-data#android.app.device_admin
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:122:13-124:61
+	android:resource
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:124:17-58
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:123:17-56
+receiver#kr.mintech.sleep.tight.widgets.LockScreenProvider
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:126:9-135:20
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:126:19-61
+meta-data#android.appwidget.provider
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:127:13-129:67
+	android:resource
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:129:17-64
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:128:17-58
+intent-filter#android.appwidget.action.APPWIDGET_UPDATE+com.example.sleeptight.savebroadcast
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:131:13-134:29
+action#android.appwidget.action.APPWIDGET_UPDATE
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:132:17-84
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:132:25-81
+action#com.example.sleeptight.savebroadcast
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:133:17-79
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:133:25-76
+service#kr.mintech.sleep.tight.services.SleepTightService
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:137:9-138:19
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:137:18-60
+receiver#kr.mintech.sleep.tight.widgets.MyWidgetIntentReceiver
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:140:9-148:20
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:140:19-65
+intent-filter#kr.mintech.add.action
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:141:13-143:29
+action#kr.mintech.add.action
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:142:17-64
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:142:25-61
+receiver#kr.mintech.sleep.tight.services.BroadCastReceiver
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:151:9-161:20
+	android:label
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:154:13-45
+	android:enabled
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:153:13-35
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:152:13-77
+	android:launchMode
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:155:13-44
+intent-filter#kr.mintech.main.refresh+kr.mintech.reminder+kr.mintech.restart
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:156:13-160:29
+action#kr.mintech.restart
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:157:17-61
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:157:25-58
+action#kr.mintech.reminder
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:158:17-62
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:158:25-59
+action#kr.mintech.main.refresh
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:159:17-66
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:159:25-63

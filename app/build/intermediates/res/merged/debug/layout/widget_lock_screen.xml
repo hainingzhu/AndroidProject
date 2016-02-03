@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="320dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:minHeight="500dp"
+    android:orientation="vertical"
+    android:padding="@dimen/widget_margin" >
+
+    <RelativeLayout
+        android:id="@+id/rlAddSleep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/LightGray"
+        android:orientation="horizontal"
+        android:useDefaultMargins="false" >
+
+        <ImageButton
+            android:id="@+id/ibAddSleep"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="false"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingLeft="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/addsleep" 
+            android:visibility="visible"/>
+
+        <Button
+            android:id="@+id/bAddSleep"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/ibAddSleep"
+            android:clickable="false"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/button_addsleep"
+            android:textColor="@color/DarkGray"
+            android:textSize="14sp" 
+            android:visibility="visible"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical">
+            
+	        <TextView
+	            android:id="@+id/tvSleepDuration"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:gravity="center_horizontal"
+	            android:paddingLeft="7dp"
+	            android:paddingRight="5dp"
+	            android:text=""
+	            android:layout_alignBaseline="@+id/tvAddSleep"
+	            android:textColor="@color/DarkGray"
+	            android:textSize="22sp" />
+	        
+	        <TextView
+	            android:id="@+id/tvAddSleep"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_toRightOf="@+id/tvSleepDuration"
+	            android:textAlignment="viewStart"
+	            android:gravity="center_horizontal"
+	            android:text=""
+	            android:textColor="@color/DarkGray"
+	            android:textSize="17sp" />
+		</RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/ibSleepQuality"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:clickable="false"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="5dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/addquality" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/White" >
+
+        <ImageView
+            android:id="@+id/ivCanvas"
+            android:layout_width="match_parent"
+            android:layout_height="180dp" />
+
+        <RelativeLayout
+            android:id="@+id/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="180dp" >
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/progressbar"
+                android:layout_centerInParent="true"
+                android:text="Loading..." />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/LightGray"
+        android:orientation="horizontal"
+        android:useDefaultMargins="false" >
+
+        <ImageButton
+            android:id="@+id/btn_1_action_add"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="15dp"
+            android:scaleType="centerInside"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/btn_2_action_add"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="15dp"
+            android:scaleType="centerInside"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/btn_3_action_add"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="15dp"
+            android:scaleType="centerInside"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/btn_4_action_add"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="15dp"
+            android:scaleType="centerInside"
+            android:layout_weight="1" />
+        
+        <ImageButton
+            android:id="@+id/btn_5_action_add"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="15dp"
+            android:scaleType="centerInside"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</LinearLayout>

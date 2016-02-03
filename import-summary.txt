@@ -1,0 +1,101 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .DS_Store
+* .idea/
+* .idea/.name
+* .idea/AndroidProject.iml
+* .idea/compiler.xml
+* .idea/copyright/
+* .idea/copyright/profiles_settings.xml
+* .idea/misc.xml
+* .idea/modules.xml
+* .idea/vcs.xml
+* .idea/workspace.xml
+* _DS_Store
+* _classpath
+* _gitignore
+* _project
+* ic_launcher-web.png
+* proguard-project.txt
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:18.0.0
+guava-14.0.1.jar => com.google.guava:guava:14.0.1
+
+Potentially Missing Dependency:
+-------------------------------
+When we replaced the following .jar files with a Gradle dependency, we
+inferred the dependency version number from the filename. This
+specific version may not actually be available from the repository.
+If you get a build error stating that the dependency is missing, edit
+the version number to for example "+" to pick up the latest version
+instead. (This may require you to update your code if the library APIs
+have changed.)
+
+guava-14.0.1.jar => version 14.0.1 in com.google.guava:guava:14.0.1
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app/src/main/AndroidManifest.xml
+* libs/json_simple-1.1.jar => app/libs/json_simple-1.1.jar
+* lint.xml => app/lint.xml
+* res/ => app/src/main/res/
+* src/ => app/src/main/java/
+* src/.DS_Store => app/src/main/resources/.DS_Store
+* src/_DS_Store => app/src/main/resources/_DS_Store
+* src/kr/.DS_Store => app/src/main/resources/kr/.DS_Store
+* src/kr/_DS_Store => app/src/main/resources/kr/_DS_Store
+* src/kr/mintech/.DS_Store => app/src/main/resources/kr/mintech/.DS_Store
+* src/kr/mintech/_DS_Store => app/src/main/resources/kr/mintech/_DS_Store
+* src/kr/mintech/sleep/.DS_Store => app/src/main/resources/kr/mintech/sleep/.DS_Store
+* src/kr/mintech/sleep/_DS_Store => app/src/main/resources/kr/mintech/sleep/_DS_Store
+* src/kr/mintech/sleep/tight/.DS_Store => app/src/main/resources/kr/mintech/sleep/tight/.DS_Store
+* src/kr/mintech/sleep/tight/_DS_Store => app/src/main/resources/kr/mintech/sleep/tight/_DS_Store
+* src/kr/mintech/sleep/tight/activities/.DS_Store => app/src/main/resources/kr/mintech/sleep/tight/activities/.DS_Store
+* src/kr/mintech/sleep/tight/activities/_DS_Store => app/src/main/resources/kr/mintech/sleep/tight/activities/_DS_Store
+* src/kr/mintech/sleep/tight/activities/popups/.DS_Store => app/src/main/resources/kr/mintech/sleep/tight/activities/popups/.DS_Store
+* src/kr/mintech/sleep/tight/activities/settings/.DS_Store => app/src/main/resources/kr/mintech/sleep/tight/activities/settings/.DS_Store
+* src/kr/mintech/sleep/tight/activities/sleepdiarys/.DS_Store => app/src/main/resources/kr/mintech/sleep/tight/activities/sleepdiarys/.DS_Store
+* src/kr/mintech/sleep/tight/bases/.DS_Store => app/src/main/resources/kr/mintech/sleep/tight/bases/.DS_Store
+* src/kr/mintech/sleep/tight/comparison/.DS_Store => app/src/main/resources/kr/mintech/sleep/tight/comparison/.DS_Store
+* src/kr/mintech/sleep/tight/consts/.DS_Store => app/src/main/resources/kr/mintech/sleep/tight/consts/.DS_Store
+* src/kr/mintech/sleep/tight/controllers/.DS_Store => app/src/main/resources/kr/mintech/sleep/tight/controllers/.DS_Store
+* src/kr/mintech/sleep/tight/controllers/_DS_Store => app/src/main/resources/kr/mintech/sleep/tight/controllers/_DS_Store
+* src/kr/mintech/sleep/tight/fragments/.DS_Store => app/src/main/resources/kr/mintech/sleep/tight/fragments/.DS_Store
+* src/kr/mintech/sleep/tight/listeners/.DS_Store => app/src/main/resources/kr/mintech/sleep/tight/listeners/.DS_Store
+* src/kr/mintech/sleep/tight/networks/_DS_Store => app/src/main/resources/kr/mintech/sleep/tight/networks/_DS_Store
+* src/kr/mintech/sleep/tight/views/.DS_Store => app/src/main/resources/kr/mintech/sleep/tight/views/.DS_Store
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

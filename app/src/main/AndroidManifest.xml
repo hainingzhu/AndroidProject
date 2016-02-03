@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="kr.mintech.sleep.tight"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <!--activity
+            android:name="kr.mintech.sleep.tight.activities.StartActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        -->
+
+
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.UserInfoRegister"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" 
+            android:noHistory="true" />
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.popups.AddDurationAcitivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/transparent_background_dialog_activity" />
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.popups.TimeActivitySelectActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/transparent_background_dialog_activity" />
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.popups.AddActionActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/transparent_background_dialog_activity" />
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.popups.DeleteActionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/transparent_background_dialog_activity" />
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.sleepdiarys.SummaryBinInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/transparent_background_dialog_activity" />
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.popups.DeleteTracksActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/transparent_background_dialog_activity" />
+        <!--activity
+            android:name="kr.mintech.sleep.tight.activities.sleepdiarys.ActivityBeforeBedActivity"
+            android:screenOrientation="portrait" /-->
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.sleepdiarys.AddSleepDiaryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.sleepdiarys.SelectBeforeBedActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/transparent_background_dialog_activity" />
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.sleepdiarys.SelectSleepDisturbActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/transparent_background_dialog_activity" />
+        <activity
+            android:name="kr.mintech.sleep.tight.fragments.DateSpinnerTimeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/transparent_background_dialog_activity" />
+
+        <!-- Setting -->
+
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.settings.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.settings.BeforeBedActEditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.settings.SleepDisturbEditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.settings.EditActListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.settings.AddSleepDisturbActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/transparent_background_dialog_activity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="kr.mintech.sleep.tight.activities.settings.AddBeforeBedActActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/transparent_background_dialog_activity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <!--activity android:name=".activities.WakeTimeDiaryActivity" /-->
+
+        <receiver
+            android:name=".widgets.LockScreenReceiver"
+            android:description="@string/app_name"
+            android:label="@string/app_name" >
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/lock_screen_admin" />
+        </receiver>
+        <receiver android:name=".widgets.LockScreenProvider" >
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/lock_appwidget_provider" />
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.sleeptight.savebroadcast" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".services.SleepTightService" >
+        </service>
+
+        <receiver android:name=".widgets.MyWidgetIntentReceiver" >
+            <intent-filter>
+                <action android:name="kr.mintech.add.action" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/lock_appwidget_provider" />
+        </receiver>
+
+        <!-- receiver android:process=":remote" -->
+        <receiver
+            android:name="kr.mintech.sleep.tight.services.BroadCastReceiver"
+            android:enabled="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="kr.mintech.restart" />
+                <action android:name="kr.mintech.reminder" />
+                <action android:name="kr.mintech.main.refresh" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
