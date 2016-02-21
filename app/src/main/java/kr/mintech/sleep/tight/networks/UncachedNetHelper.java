@@ -67,9 +67,9 @@ public class UncachedNetHelper extends MTObject
 //		kData.append("http://rocky-taiga-5665.herokuapp.com");  // Testing server
 //		kData.append("http://192.168.1.146:3000"); // home
 //		kData.append("http://173.250.149.196:3000"); // rcb
-		kData.append("http://depts.washington.edu/sleeptgt/sleeptight-rails-project/"); // server
+//		kData.append("http://depts.washington.edu/sleeptgt/sleeptight-rails-project/"); // server
 //		kData.append("http://10.0.2.2:3000"); // host system of the emulator
-		
+		kData.append("http://dsquare.ist.psu.edu:8080");
 		return kData;
 	}
 	
@@ -81,6 +81,7 @@ public class UncachedNetHelper extends MTObject
 	{
 		String kJson = makeRegisterInfo(PreferenceUtil.getAndroidId());
 		StringBuilder kData = getServerUrl();
+		Log.w("WHJ", "connectin server" + kJson);
 		kData.append(StringConst.API_REGISTER_USER);
 		_dataRequestPostTask = new DataRequestPostTask();
 		_dataRequestPostTask.execute(kData.toString(), kJson);

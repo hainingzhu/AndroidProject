@@ -37,6 +37,7 @@ public class StartActivity extends Activity {
 		_descriptionText.setText("Connecting...");
 
 		if (PreferenceUtil.getFirstRun()) {
+			Log.w("first run", "i am a virgin");
 			PreferenceUtil.setFirstRun();
 			PreferenceUtil.setDiaryReminder("false");
 			PreferenceUtil.setDiaryReminderTime("3:36 AM");
@@ -59,12 +60,14 @@ public class StartActivity extends Activity {
 
 	@Override
 	protected void onResume() {
+		Log.w("onResume", "fuck you!");
 		super.onResume();
 		if (_isKillAppFlag) {
 			finish();
 			return;
 		} else {
 			if (SystemUtil.isConnectNetwork()) {
+				Log.w("onResume", "The server is not available. I fuck your mama");
 				requestIsRegister();
 			} else {
 				Toast.makeText(this, "Inappropriate Network Connection", Toast.LENGTH_SHORT)
