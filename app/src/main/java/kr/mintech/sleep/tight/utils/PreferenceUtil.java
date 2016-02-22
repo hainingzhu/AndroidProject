@@ -32,6 +32,10 @@ public final class PreferenceUtil extends BasePreferenceUtil
 	{
 		setKey(KEY_IS_FIRST_RUN, false);
 	}
+
+	public static void setFirstRun(boolean flag) {
+		setKey(KEY_IS_FIRST_RUN, flag);
+	}
 	
 	
 	/**

@@ -1,6 +1,7 @@
 package kr.mintech.sleep.tight.activities;
 
 import kr.mintech.sleep.tight.R;
+import kr.mintech.sleep.tight.activities.Local_db.backgroundTask;
 import kr.mintech.sleep.tight.consts.NumberConst;
 import kr.mintech.sleep.tight.consts.StringConst;
 import kr.mintech.sleep.tight.controllers.RegisterController;
@@ -11,6 +12,7 @@ import Util.Logg;
 import Util.SystemUtil;
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v4.util.LogWriter;
@@ -27,11 +29,14 @@ public class StartActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		StrictMode.enableDefaults();
+		StrictMode.allowThreadDiskReads();
+		StrictMode.allowThreadDiskWrites();
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.act_start);
 
 		Log.w("shakej", "Start!");
+
 		ContextUtil.CONTEXT = this;
 		_descriptionText = (TextView) findViewById(R.id.text_start_text);
 		_descriptionText.setText("Connecting...");
@@ -48,7 +53,7 @@ public class StartActivity extends Activity {
 			PreferenceUtil.setAndroidId(kUuid);
 		}
 		//requestIsRegister();
-		// goUserInfoRegister();
+		//goUserInfoRegister();
 	}
 
 	@Override
@@ -67,7 +72,7 @@ public class StartActivity extends Activity {
 			return;
 		} else {
 			if (SystemUtil.isConnectNetwork()) {
-				Log.w("onResume", "The server is not available. I fuck your mama");
+				Log.w("onResume", "The server is available.");
 				requestIsRegister();
 			} else {
 				Toast.makeText(this, "Inappropriate Network Connection", Toast.LENGTH_SHORT)
@@ -82,6 +87,8 @@ public class StartActivity extends Activity {
 			Intent kIntent = new Intent(this, UserInfoRegister.class);
 			kIntent.putExtra("user_id", _ctrl.unit.id);
 			startActivity(kIntent);
+
+
 			finish();
 		} else {
 			Toast.makeText(this, "Didn't receive the User ID. Please try again.",
@@ -110,6 +117,11 @@ public class StartActivity extends Activity {
 				} else {
 					allRequestEnded();
 				}
+
+                // add user info to local database
+                Intent msi = new Intent(StartActivity.this, backgroundTask.class);
+                msi.setData(Uri.parse(String.format("/addusers?id=%d&nickname=%s&gender=%s", _ctrl.unit.id, _ctrl.unit.name, _ctrl.unit.gender)));
+                startService(msi);
 				break;
 				
 			case NumberConst.requestFail:

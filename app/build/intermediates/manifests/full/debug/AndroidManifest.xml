@@ -147,6 +147,9 @@
 
         <service android:name="kr.mintech.sleep.tight.services.SleepTightService" >
         </service>
+        <service
+            android:name="kr.mintech.sleep.tight.activities.Local_db.backgroundTask"
+            android:exported="false" />
 
         <receiver android:name="kr.mintech.sleep.tight.widgets.MyWidgetIntentReceiver" >
             <intent-filter>

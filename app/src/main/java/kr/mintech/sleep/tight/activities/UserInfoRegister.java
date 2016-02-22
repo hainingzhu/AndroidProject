@@ -3,11 +3,13 @@ package kr.mintech.sleep.tight.activities;
 import java.util.ArrayList;
 
 import kr.mintech.sleep.tight.R;
+import kr.mintech.sleep.tight.activities.Local_db.backgroundTask;
 import kr.mintech.sleep.tight.consts.NumberConst;
 import kr.mintech.sleep.tight.controllers.RegisterController;
 import kr.mintech.sleep.tight.listeners.OnRequestEndListener;
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -144,6 +146,7 @@ public class UserInfoRegister extends Activity
 			
 			Log.w("UserRegister", kUserName + " " + kUserBirthDay + " " + kGender + " " + kSleepCondition);
 			_controller.requestAddRegisterInfo(_targetUserId, kUserName, Integer.parseInt(kUserBirthDay), kGender, kSleepCondition);
+
 		}
 	};
 	

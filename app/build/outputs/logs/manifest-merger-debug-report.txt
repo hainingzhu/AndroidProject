@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:2:1-177:12
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:2:1-180:12
 	xmlns:android
 		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:2:11-69
 	package
@@ -35,7 +35,7 @@ ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xm
 	android:name
 		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:12:22-76
 application
-ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:14:5-175:19
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:14:5-178:19
 MERGED from [com.android.support:support-v4:23.0.0] /Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/AndroidManifest.xml:22:5-20
 	android:label
 		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:17:9-41
@@ -243,37 +243,43 @@ service#kr.mintech.sleep.tight.services.SleepTightService
 ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:150:9-151:19
 	android:name
 		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:150:18-60
+service#kr.mintech.sleep.tight.activities.Local_db.backgroundTask
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:153:9-154:40
+	android:exported
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:154:13-37
+	android:name
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:153:18-90
 receiver#kr.mintech.sleep.tight.widgets.MyWidgetIntentReceiver
-ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:153:9-161:20
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:156:9-164:20
 	android:name
-		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:153:19-65
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:156:19-65
 intent-filter#kr.mintech.add.action
-ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:154:13-156:29
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:157:13-159:29
 action#kr.mintech.add.action
-ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:155:17-64
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:158:17-64
 	android:name
-		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:155:25-61
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:158:25-61
 receiver#kr.mintech.sleep.tight.services.BroadCastReceiver
-ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:164:9-174:20
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:167:9-177:20
 	android:label
-		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:167:13-45
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:170:13-45
 	android:enabled
-		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:166:13-35
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:169:13-35
 	android:name
-		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:165:13-77
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:168:13-77
 	android:launchMode
-		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:168:13-44
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:171:13-44
 intent-filter#kr.mintech.main.refresh+kr.mintech.reminder+kr.mintech.restart
-ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:169:13-173:29
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:172:13-176:29
 action#kr.mintech.restart
-ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:170:17-61
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:173:17-61
 	android:name
-		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:170:25-58
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:173:25-58
 action#kr.mintech.reminder
-ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:171:17-62
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:174:17-62
 	android:name
-		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:171:25-59
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:174:25-59
 action#kr.mintech.main.refresh
-ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:172:17-66
+ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:175:17-66
 	android:name
-		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:172:25-63
+		ADDED from /Users/hbz5037/Desktop/AndroidProject/app/src/main/AndroidManifest.xml:175:25-63
