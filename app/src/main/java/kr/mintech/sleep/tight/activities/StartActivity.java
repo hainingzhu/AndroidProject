@@ -42,11 +42,11 @@ public class StartActivity extends Activity {
 		_descriptionText.setText("Connecting...");
 
 		if (PreferenceUtil.getFirstRun()) {
-			Log.w("first run", "i am a virgin");
+			Log.w("first run", "i am a xxx");
 			PreferenceUtil.setFirstRun();
 			PreferenceUtil.setDiaryReminder("false");
 			PreferenceUtil.setDiaryReminderTime("3:36 AM");
-			PreferenceUtil.setDiaryReminderDate("Jun 04 2013 05:12 AM");
+			PreferenceUtil.setDiaryReminderDate("Feb 04 2016 05:12 AM");
 			PreferenceUtil.setUserActivity("Caffeine:Meal:Medication:Alcohol:Exercise:Tobacco");
 			String kUuid = SystemUtil.getAndroidId(this);
 			// CLEANUP // Logg.w("MainActivity | setFirstRun()", "Initiation :" + kUuid);
@@ -65,7 +65,7 @@ public class StartActivity extends Activity {
 
 	@Override
 	protected void onResume() {
-		Log.w("onResume", "fuck you!");
+		Log.w("onResume", "xxxx you!");
 		super.onResume();
 		if (_isKillAppFlag) {
 			finish();

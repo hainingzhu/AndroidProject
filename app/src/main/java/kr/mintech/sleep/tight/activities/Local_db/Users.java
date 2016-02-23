@@ -11,15 +11,13 @@ public class Users {
 
     private int id;
     private String loginName;
-    private String passwd;
     private int gender;
     private String start_date;
 
 
 
-    public Users (String name, String pwd, int sex, String date) {
+    public Users (String name,  int sex, String date) {
         loginName = name;
-        passwd = pwd;
         gender = sex;
         start_date = date;
     }
