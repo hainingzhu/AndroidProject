@@ -92,37 +92,37 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
 
 
-    private static final String TABLE_CREATE_USERS = "Create Table users (id int primary key, " +
-            "nickname text not null, birthYear int, gender text, sleepCondition text, start_date date);";
+    private static final String TABLE_CREATE_USERS = "Create Table users (id INTEGER primary key, " +
+            "nickname text not null, birthYear INTEGER, gender text, sleepCondition text, start_date date);";
 
-    private static final String TABLE_CREATE_SLEEP_TRACKS = "Create Table sleep_tracks (id int primary key AUTO_INCREMENT, " +
+    private static final String TABLE_CREATE_SLEEP_TRACKS = "Create Table sleep_tracks (id INTEGER primary key AUTOINCREMENT, " +
             "user_id int REFERENCES users (id), diary_date DATE, in_bed_time TIME[ (P)] [WITHOUT TIME ZONE], " +
             "sleep_time TIME[ (P)] [WITHOUT TIME ZONE], wake_up_time TIME[ (P)] [WITHOUT TIME ZONE], " +
             "out_bed_time TIME[ (P)] [WITHOUT TIME ZONE], sleep_quality NUMERIC(5, 5), awake_count INT, " +
             "total_awake_time INTERVAL[FIELDS] [(P) ], sleep_latency INTERVAL[FIELDS] [(P) ]," +
             "create_time TIME[ (P)] [WITHOUT TIME ZONE]);";
 
-    private static final String TABLE_CREATE_ACTIVITIES = "Create Table activities (id INT PRIMARY KEY AUTO_INCREMENT," +
+    private static final String TABLE_CREATE_ACTIVITIES = "Create Table activities (id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "user_id INT REFERENCES users (id),color TEXT, position INT" +
             "activity_name TEXT, defaultx TEXT);";
 
-    private static final String TABLE_CREATE_ACTIVITY_TRACKS = "Create Table activity_tracks (id INT PRIMARY KEY AUTO_INCREMENT," +
+    private static final String TABLE_CREATE_ACTIVITY_TRACKS = "Create Table activity_tracks (id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "activity_id INT REFERENCES activities (id),user_id INT REFERENCES users (id)," +
             "record_type TEXT, start_time TIME, end_time TIME, create_time TIMESTAMP);";
 
 
 
 
-    private static final String TABLE_CREATE_SLEEP_DISTURBANCES = "Create Table sleep_disturbances (id INT PRIMARY KEY AUTO_INCREMENT," +
+    private static final String TABLE_CREATE_SLEEP_DISTURBANCES = "Create Table sleep_disturbances (id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "disturbance_name TEXT, user_id INT REFERENCES users (id));";
 
-    private static final String TABLE_CREATE_SLEEP_RITUALS = "Create Table sleep_rituals (id INT PRIMARY KEY AUTO_INCREMENT," +
+    private static final String TABLE_CREATE_SLEEP_RITUALS = "Create Table sleep_rituals (id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "ritual_name TEXT, user_id INT REFERENCES users (id));";
 
-    private static final String TABLE_CREATE_SLEEP_TRACK_DISTURBANCES = "Create Table sleep_track_disturbances (id INT PRIMARY KEY AUTO_INCREMENT," +
+    private static final String TABLE_CREATE_SLEEP_TRACK_DISTURBANCES = "Create Table sleep_track_disturbances (id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "sleep_disturbance_id INT REFERENCES sleep_disturbance (id), sleep_track_id INT REFERENCES sleep_tracks (id));";
 
-    private static final String TABLE_CREATE_SLEEP_TRACK_RITUALS = "Create Table sleep_track_rituals (id INT PRIMARY KEY AUTO_INCREMENT," +
+    private static final String TABLE_CREATE_SLEEP_TRACK_RITUALS = "Create Table sleep_track_rituals (id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "sleep_ritual_id INT REFERENCES sleep_rituals (id), sleep_track_id INT REFERENCES sleep_tracks (id));";
 
 
@@ -150,6 +150,24 @@ public class dbHelper_local extends SQLiteOpenHelper {
         //this.db = db;
 
 
+    }
+
+
+    public static void insertUser(Users u, Context cont)
+    {
+        dbHelper_local mdb = new dbHelper_local(cont);
+        SQLiteDatabase db = mdb.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(dbHelper_local.USERS_COLUMN_ID, u.id);
+        values.put(dbHelper_local.USERS_COLUMN_NAME, u.loginName);
+        values.put(dbHelper_local.USERS_COLUMN_BIRTHYEAR, u.birthYear);
+        values.put(dbHelper_local.USERS_COLUMN_GENDER, u.gender);
+        values.put(dbHelper_local.USERS_COLUMN_SLEEPCONDITION, u.sleepCondition);
+        //values.put(dbHelper_local.USERS_COLUMN_START_DATE, getDate("start_date") );
+
+        db.insert(dbHelper_local.TABLE_USERS, null, values);
+        db.close();
     }
 
 
