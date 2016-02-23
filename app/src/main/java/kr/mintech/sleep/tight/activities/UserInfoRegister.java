@@ -3,7 +3,9 @@ package kr.mintech.sleep.tight.activities;
 import java.util.ArrayList;
 
 import kr.mintech.sleep.tight.R;
+import kr.mintech.sleep.tight.activities.Local_db.Users;
 import kr.mintech.sleep.tight.activities.Local_db.backgroundTask;
+import kr.mintech.sleep.tight.activities.Local_db.dbHelper_local;
 import kr.mintech.sleep.tight.consts.NumberConst;
 import kr.mintech.sleep.tight.controllers.RegisterController;
 import kr.mintech.sleep.tight.listeners.OnRequestEndListener;
@@ -147,6 +149,12 @@ public class UserInfoRegister extends Activity
 			Log.w("UserRegister", kUserName + " " + kUserBirthDay + " " + kGender + " " + kSleepCondition);
 			_controller.requestAddRegisterInfo(_targetUserId, kUserName, Integer.parseInt(kUserBirthDay), kGender, kSleepCondition);
 
+
+
+			// add user into local database
+			Users u = new Users(kUserName, Integer.parseInt(kUserBirthDay), kGender, kSleepCondition);
+			Log.w("WHJ", "write user to local DB" + u.toString());
+			dbHelper_local.insertUser(u, UserInfoRegister.this);
 		}
 	};
 	

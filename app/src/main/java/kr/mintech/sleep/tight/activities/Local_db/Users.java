@@ -4,6 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import kr.mintech.sleep.tight.networks.JsonNode;
 
 /**
@@ -11,22 +14,29 @@ import kr.mintech.sleep.tight.networks.JsonNode;
  */
 public class Users {
 
-    private int id;
-    private String loginName;
+    public int id;
+    public String loginName;
     public int birthYear;
-    private String gender;
+    public String gender;
     public String sleepCondition;
-    private String start_date;
+    public String start_date;
 
 
 
-    public Users (String name,  int birthYear, String sex, String sleepCondition, String date) {
+    public Users (String name,  int birthYear, String sex, String sleepCondition) {
         loginName = name;
         this.birthYear = birthYear;
         gender = sex;
         this.sleepCondition = sleepCondition;
-        start_date = date;
+        start_date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());;
     }
 
+
+    @Override
+    public String toString()
+    {
+        return String.format("User: %s, Id: %d, BirthYear: %d, gender: %s, SleepCondition %s",
+                loginName, id, birthYear, gender, sleepCondition);
+    }
 
 }
