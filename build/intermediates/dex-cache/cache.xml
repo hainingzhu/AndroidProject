@@ -1,2 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/hbz5037/Desktop/AndroidProject/app/libs/json_simple-1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5e303a03d04e6788dddfa3655272580ae0fc13bb">
+        <dex dex="/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/pre-dexed/debug/json_simple-1.1_edd70a4af9e8bbfc06a5b9e58ba791ec199dd21d.jar" />
+    </item>
+    <item
+        jar="/Users/hbz5037/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.0_c942fb1af341402ae12b2d69aa56f4f7493eedc1.jar" />
+    </item>
+    <item
+        jar="/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.0_f39118583e5352da9f029ad3190274cbf1d003b7.jar" />
+    </item>
+    <item
+        jar="/Users/hbz5037/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/14.0.1/69e12f4c6aeac392555f1ea86fab82b5e5e31ad4/guava-14.0.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="69e12f4c6aeac392555f1ea86fab82b5e5e31ad4">
+        <dex dex="/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/pre-dexed/debug/guava-14.0.1_50bdb2128172b05bb9806a2a8018431c795a128c.jar" />
+    </item>
+    <item
+        jar="/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="/Users/hbz5037/Desktop/AndroidProject/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.0.0_d2861e4018aa73e84d83b6345f03ef64cb7e461f.jar" />
+    </item>
+
+</items>
