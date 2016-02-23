@@ -20,5 +20,4 @@ public class activities {
         this.activity_name = activity_name;
         this.defaultx = defaultx;
     }
-
 }

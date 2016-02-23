@@ -17,9 +17,10 @@ public class dbHelper_local extends SQLiteOpenHelper {
     public static final String TABLE_USERS = "users";
     public static final String USERS_COLUMN_ID = "id";
     public static final String USERS_COLUMN_NAME = "nickname";
+    public static final String USERS_COLUMN_BIRTHYEAR = "birthYear";
     public static final String USERS_COLUMN_GENDER = "gender";
+    public static final String USERS_COLUMN_SLEEPCONDITION = "sleepCondition";
     public static final String USERS_COLUMN_START_DATE = "start_date";
-
 
 
     public static final String TABLE_SLEEP_TRACKS = "sleep_tracks";
@@ -71,6 +72,8 @@ public class dbHelper_local extends SQLiteOpenHelper {
     public static final String SLEEP_RITUALS_COLUMN_ID = "id";
     public static final String SLEEP_RITUALS_COLUMN_RITUALNAME = "ritual_name";
     public static final String SLEEP_RITUALS_COLUMN_USERID = "user_id";
+    public static final String SLEEP_RITUALS_COLUMN_FREQUENCY = "frequency";
+
 
 
 
@@ -90,7 +93,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
 
     private static final String TABLE_CREATE_USERS = "Create Table users (id int primary key, " +
-            "nickname text not null, gender text, start_date date);";
+            "nickname text not null, birthYear int, gender text, sleepCondition text, start_date date);";
 
     private static final String TABLE_CREATE_SLEEP_TRACKS = "Create Table sleep_tracks (id int primary key AUTO_INCREMENT, " +
             "user_id int REFERENCES users (id), diary_date DATE, in_bed_time TIME[ (P)] [WITHOUT TIME ZONE], " +

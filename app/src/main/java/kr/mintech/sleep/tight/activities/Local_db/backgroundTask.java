@@ -41,7 +41,9 @@ public class backgroundTask extends IntentService {
 
             values.put(dbHelper_local.USERS_COLUMN_ID, u.getQueryParameter("id"));
             values.put(dbHelper_local.USERS_COLUMN_NAME, u.getQueryParameter("nickname"));
+            values.put(dbHelper_local.USERS_COLUMN_BIRTHYEAR, u.getQueryParameter("birthYear"));
             values.put(dbHelper_local.USERS_COLUMN_GENDER, u.getQueryParameter("gender"));
+            values.put(dbHelper_local.USERS_COLUMN_SLEEPCONDITION, u.getQueryParameter("sleepCondition"));
             values.put(dbHelper_local.USERS_COLUMN_START_DATE, getDate("start_date") );
 
             db.insert(dbHelper_local.TABLE_USERS, null, values);
@@ -125,6 +127,8 @@ public class backgroundTask extends IntentService {
             values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_ID, u.getQueryParameter("id"));
             values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_RITUALNAME, u.getQueryParameter("ritual_name"));
             values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_USERID, u.getQueryParameter("user_id"));
+            values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_FREQUENCY, u.getQueryParameter("frequency"));
+
 
             db.insert(dbHelper_local.TABLE_SLEEP_RITUALS, null, values);
             db.close();
