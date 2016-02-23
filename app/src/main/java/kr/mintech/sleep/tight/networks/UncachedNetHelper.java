@@ -81,7 +81,7 @@ public class UncachedNetHelper extends MTObject
 	{
 		String kJson = makeRegisterInfo(PreferenceUtil.getAndroidId());
 		StringBuilder kData = getServerUrl();
-		Log.w("WHJ", "connectin server" + kJson);
+		Log.w("WHJ", "connecting server " + kJson);
 		kData.append(StringConst.API_REGISTER_USER);
 		_dataRequestPostTask = new DataRequestPostTask();
 		_dataRequestPostTask.execute(kData.toString(), kJson);

@@ -42,7 +42,7 @@ public class StartActivity extends Activity {
 		_descriptionText.setText("Connecting...");
 
 		if (PreferenceUtil.getFirstRun()) {
-			Log.w("first run", "i am a xxx");
+			Log.w("WHJ", "First run, i am a xxx");
 			PreferenceUtil.setFirstRun();
 			PreferenceUtil.setDiaryReminder("false");
 			PreferenceUtil.setDiaryReminderTime("3:36 AM");
@@ -65,14 +65,14 @@ public class StartActivity extends Activity {
 
 	@Override
 	protected void onResume() {
-		Log.w("onResume", "xxxx you!");
+		Log.w("WHJ", "xxxx you!");
 		super.onResume();
 		if (_isKillAppFlag) {
 			finish();
 			return;
 		} else {
 			if (SystemUtil.isConnectNetwork()) {
-				Log.w("onResume", "The server is available.");
+				Log.w("WHJ", "The server is available.");
 				requestIsRegister();
 			} else {
 				Toast.makeText(this, "Inappropriate Network Connection", Toast.LENGTH_SHORT)
@@ -87,8 +87,6 @@ public class StartActivity extends Activity {
 			Intent kIntent = new Intent(this, UserInfoRegister.class);
 			kIntent.putExtra("user_id", _ctrl.unit.id);
 			startActivity(kIntent);
-
-
 			finish();
 		} else {
 			Toast.makeText(this, "Didn't receive the User ID. Please try again.",
@@ -119,9 +117,11 @@ public class StartActivity extends Activity {
 				}
 
                 // add user info to local database
-                Intent msi = new Intent(StartActivity.this, backgroundTask.class);
+                /*
+				Intent msi = new Intent(StartActivity.this, backgroundTask.class);
                 msi.setData(Uri.parse(String.format("/addusers?id=%d&nickname=%s&gender=%s", _ctrl.unit.id, _ctrl.unit.name, _ctrl.unit.gender)));
                 startService(msi);
+                */
 				break;
 				
 			case NumberConst.requestFail:

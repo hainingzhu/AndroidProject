@@ -44,7 +44,7 @@ public class backgroundTask extends IntentService {
             values.put(dbHelper_local.USERS_COLUMN_BIRTHYEAR, u.getQueryParameter("birthYear"));
             values.put(dbHelper_local.USERS_COLUMN_GENDER, u.getQueryParameter("gender"));
             values.put(dbHelper_local.USERS_COLUMN_SLEEPCONDITION, u.getQueryParameter("sleepCondition"));
-            values.put(dbHelper_local.USERS_COLUMN_START_DATE, getDate("start_date") );
+            //values.put(dbHelper_local.USERS_COLUMN_START_DATE, getDate("start_date") );
 
             db.insert(dbHelper_local.TABLE_USERS, null, values);
             db.close();
@@ -73,7 +73,7 @@ public class backgroundTask extends IntentService {
 
             values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_ID, u.getQueryParameter("id"));
             values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_USERID, u.getQueryParameter("user_id"));
-            values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_DIARY_DATE, u.getdate("diary_date"));
+            //values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_DIARY_DATE, u.getdate("diary_date"));
             values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_INBED_TIME, u.getQueryParameter("in_bed_time") );
             values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_SLEEP_TIME, u.getQueryParameter("sleep_time"));
             values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_WAKEUP_TIME, u.getQueryParameter("wake_up_time"));
@@ -83,7 +83,7 @@ public class backgroundTask extends IntentService {
             values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_AWAKE_COUNT, u.getQueryParameter("awake_count"));
             values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_TOTAL_AWAKE_TIME, u.getQueryParameter("total_awake_time") );
             values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_SLEEP_LATENCY, u.getQueryParameter("sleep_latency"));
-            values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_CREATE_TIME, u.gettime("create_time"));
+            //values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_CREATE_TIME, u.gettime("create_time"));
 
             db.insert(dbHelper_local.TABLE_SLEEP_TRACKS, null, values);
             db.close();
@@ -100,7 +100,7 @@ public class backgroundTask extends IntentService {
             values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_RECORDTYPE, u.getQueryParameter("record_type") );
             values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_STARTTIME, u.getQueryParameter("start_time"));
             values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_ENDTIME, u.getQueryParameter("end_time"));
-            values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_CREATETIME, u.gettime("create_time"));
+            //values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_CREATETIME, u.gettime("create_time"));
 
             db.insert(dbHelper_local.TABLE_ACTIVITY_TRACKS, null, values);
             db.close();
@@ -147,7 +147,7 @@ public class backgroundTask extends IntentService {
             db.close();
 
         }
-        else (action.equals("/addsleep_track_rituals"))
+        else if (action.equals("/addsleep_track_rituals"))
         {
             SQLiteDatabase db = mdb.getWritableDatabase();
             ContentValues values = new ContentValues();
