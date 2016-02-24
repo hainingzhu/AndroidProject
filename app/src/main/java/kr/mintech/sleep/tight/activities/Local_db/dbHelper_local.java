@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
 import android.database.Cursor;
 
+import kr.mintech.sleep.tight.utils.DateTime;
+
 /**
  * Created by hbz5037 on 2/19/16.
  */
@@ -45,19 +47,27 @@ public class dbHelper_local extends SQLiteOpenHelper {
     public static final String ACTIVITY_TRACKS_COLUMN_ACTIVITYID = "activity_id";
     public static final String ACTIVITY_TRACKS_COLUMN_USERID = "user_id";
     public static final String ACTIVITY_TRACKS_COLUMN_RECORDTYPE = "record_type";
-    public static final String ACTIVITY_TRACKS_COLUMN_STARTTIME = "start_time";
-    public static final String ACTIVITY_TRACKS_COLUMN_ENDTIME = "end_time";
+    public static final String ACTIVITY_TRACKS_COLUMN_STARTTIME = "actionStartedAt";
+    public static final String ACTIVITY_TRACKS_COLUMN_ENDTIME = "actionEndedAt";
     public static final String ACTIVITY_TRACKS_COLUMN_CREATETIME = "create_time";
+    public static final String ACTIVITY_TRACKS_COLUMN_ACTIVITYNAME = "activityName";
+    public static final String ACTIVITY_TRACKS_COLUMN_TRACKTYPE = "trackType";
+    public static final String ACTIVITY_TRACKS_COLUMN_SORTPOSITION = "sortPosition";
+    public static final String ACTIVITY_TRACKS_COLUMN_COLOR = "color";
+
 
 
 
     public static final String TABLE_ACTIVITIES = "activities";
     public static final String ACTIVITIES_COLUMN_ID = "id";
+                                                                                 //public static final String ACTIVITY_COLUMN_ACTIVITYID = "activityId";
     public static final String ACTIVITIES_COLUMN_USERID = "user_id";
     public static final String ACTIVITIES_COLUMN_COLOR = "color";
     public static final String ACTIVITIES_COLUMN_POSITION = "position";
     public static final String ACTIVITIES_COLUMN_ACTIVITY_NAME = "activity_name";
-    public static final String ACTIVITIES_COLUMN_DEFAULTX = "defaultx";
+    public static final String ACTIVITIES_COLUMN_DEFAULTTYPE = "defaultType";
+    public static final String ACTIVITIES_COLUMN_ISHIDE = "isHide";
+
 
 
 
@@ -93,37 +103,43 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
 
     private static final String TABLE_CREATE_USERS = "Create Table users (id INTEGER primary key, " +
-            "nickname text not null, birthYear INTEGER, gender text, sleepCondition text, start_date date);";
+            "nickname text not null, birthYear INTEGER, gender text, sleepCondition text, start_date text);";
 
     private static final String TABLE_CREATE_SLEEP_TRACKS = "Create Table sleep_tracks (id INTEGER primary key AUTOINCREMENT, " +
-            "user_id int REFERENCES users (id), diary_date DATE, in_bed_time TIME[ (P)] [WITHOUT TIME ZONE], " +
-            "sleep_time TIME[ (P)] [WITHOUT TIME ZONE], wake_up_time TIME[ (P)] [WITHOUT TIME ZONE], " +
-            "out_bed_time TIME[ (P)] [WITHOUT TIME ZONE], sleep_quality NUMERIC(5, 5), awake_count INT, " +
-            "total_awake_time INTERVAL[FIELDS] [(P) ], sleep_latency INTERVAL[FIELDS] [(P) ]," +
-            "create_time TIME[ (P)] [WITHOUT TIME ZONE]);";
+            "user_id INTEGER REFERENCES users (id), diary_date DATE, in_bed_time TIME[(P)] [WITHOUT TIME ZONE], " +
+            "sleep_time TIME[(P)] [WITHOUT TIME ZONE], wake_up_time TIME[(P)] [WITHOUT TIME ZONE], " +
+            "out_bed_time TIME[(P)] [WITHOUT TIME ZONE], sleep_quality NUMERIC(5, 5), awake_count INT, " +
+            "total_awake_time INTERVAL[FIELDS] [(P)], sleep_latency INTERVAL[FIELDS] [(P)]," +
+            "create_time TIME[(P)] [WITHOUT TIME ZONE]);";
 
     private static final String TABLE_CREATE_ACTIVITIES = "Create Table activities (id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "user_id INT REFERENCES users (id),color TEXT, position INT" +
-            "activity_name TEXT, defaultx TEXT);";
+            " user_id INTEGER REFERENCES users (id),color TEXT, position INTEGER" +
+            "activity_name TEXT, defaultType INTEGER, isHide INTEGER);";
+
 
     private static final String TABLE_CREATE_ACTIVITY_TRACKS = "Create Table activity_tracks (id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "activity_id INT REFERENCES activities (id),user_id INT REFERENCES users (id)," +
-            "record_type TEXT, start_time TIME, end_time TIME, create_time TIMESTAMP);";
+            "activity_id INTEGER REFERENCES activities (id),user_id INTEGER REFERENCES users (id)," +
+            "record_type TEXT, actionStartedAt TEXT, actionEndedAt TEXT, create_time TEXT," +
+            "activityName TEXT, trackType TEXT, sortPosition INTEGER, color TEXT);";
+
+
+
+
 
 
 
 
     private static final String TABLE_CREATE_SLEEP_DISTURBANCES = "Create Table sleep_disturbances (id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "disturbance_name TEXT, user_id INT REFERENCES users (id));";
+            "disturbance_name TEXT, user_id INTEGER REFERENCES users (id));";
 
     private static final String TABLE_CREATE_SLEEP_RITUALS = "Create Table sleep_rituals (id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "ritual_name TEXT, user_id INT REFERENCES users (id));";
+            "ritual_name TEXT, user_id INTEGER REFERENCES users (id));";
 
     private static final String TABLE_CREATE_SLEEP_TRACK_DISTURBANCES = "Create Table sleep_track_disturbances (id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "sleep_disturbance_id INT REFERENCES sleep_disturbance (id), sleep_track_id INT REFERENCES sleep_tracks (id));";
+            "sleep_disturbance_id INTEGER REFERENCES sleep_disturbance (id), sleep_track_id INTEGER REFERENCES sleep_tracks (id));";
 
     private static final String TABLE_CREATE_SLEEP_TRACK_RITUALS = "Create Table sleep_track_rituals (id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "sleep_ritual_id INT REFERENCES sleep_rituals (id), sleep_track_id INT REFERENCES sleep_tracks (id));";
+            "sleep_ritual_id INTEGER REFERENCES sleep_rituals (id), sleep_track_id INTEGER REFERENCES sleep_tracks (id));";
 
 
 
@@ -141,7 +157,6 @@ public class dbHelper_local extends SQLiteOpenHelper {
         db.execSQL(TABLE_CREATE_SLEEP_TRACKS);
         db.execSQL(TABLE_CREATE_ACTIVITIES);
         db.execSQL(TABLE_CREATE_ACTIVITY_TRACKS);
-
         db.execSQL(TABLE_CREATE_SLEEP_DISTURBANCES);
         db.execSQL(TABLE_CREATE_SLEEP_RITUALS );
         db.execSQL(TABLE_CREATE_SLEEP_TRACK_DISTURBANCES);
@@ -164,11 +179,62 @@ public class dbHelper_local extends SQLiteOpenHelper {
         values.put(dbHelper_local.USERS_COLUMN_BIRTHYEAR, u.birthYear);
         values.put(dbHelper_local.USERS_COLUMN_GENDER, u.gender);
         values.put(dbHelper_local.USERS_COLUMN_SLEEPCONDITION, u.sleepCondition);
-        //values.put(dbHelper_local.USERS_COLUMN_START_DATE, getDate("start_date") );
+        values.put(dbHelper_local.USERS_COLUMN_START_DATE, u.start_date);
 
         db.insert(dbHelper_local.TABLE_USERS, null, values);
         db.close();
     }
+
+
+
+    public static void insertActivities(activities a, Context cont)
+    {
+        dbHelper_local mdb = new dbHelper_local(cont);
+        SQLiteDatabase db = mdb.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(dbHelper_local.ACTIVITIES_COLUMN_ID, a.id);
+        values.put(dbHelper_local.ACTIVITIES_COLUMN_USERID, a.user_id);
+        values.put(dbHelper_local.ACTIVITIES_COLUMN_COLOR, a.color);
+        values.put(dbHelper_local.ACTIVITIES_COLUMN_POSITION, a.position );
+        values.put(dbHelper_local.ACTIVITIES_COLUMN_ACTIVITY_NAME, a.activity_name);
+        values.put(dbHelper_local.ACTIVITIES_COLUMN_DEFAULTTYPE, a.defaultType);
+        values.put(dbHelper_local.ACTIVITIES_COLUMN_ISHIDE, a.isHide);
+
+        db.insert(dbHelper_local.TABLE_ACTIVITIES, null, values);
+        db.close();
+
+    }
+
+
+
+
+    public static void insertActivitiesTracks (activity_tracks aT, Context cont)
+    {
+        dbHelper_local mdb = new dbHelper_local(cont);
+        SQLiteDatabase db = mdb.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_ID, aT.id);
+        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_ACTIVITYID, aT.activity_id);
+        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_USERID, aT.user_id);
+        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_RECORDTYPE, aT.record_type );
+        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_STARTTIME, aT.actionStartedAt);
+        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_ENDTIME, aT.actionEndedAt);
+        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_CREATETIME, aT.create_time);
+
+        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_ACTIVITYNAME, aT.activityName);
+        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_TRACKTYPE, aT.trackType);
+        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_SORTPOSITION, aT.sortPosition);
+        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_COLOR, aT.color);
+
+        db.insert(dbHelper_local.TABLE_ACTIVITY_TRACKS, null, values);
+        db.close();
+
+    }
+
+
+
 
 
 

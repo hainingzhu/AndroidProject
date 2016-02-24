@@ -28,15 +28,15 @@ public class Users {
         this.birthYear = birthYear;
         gender = sex;
         this.sleepCondition = sleepCondition;
-        start_date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());;
+        this.start_date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
     }
 
 
     @Override
     public String toString()
     {
-        return String.format("User: %s, Id: %d, BirthYear: %d, gender: %s, SleepCondition %s",
-                loginName, id, birthYear, gender, sleepCondition);
+        return String.format("Id: %d, User: %s, BirthYear: %d, gender: %s, SleepCondition: %s, startDate: %s",
+                id, loginName, birthYear, gender, sleepCondition, start_date);
     }
 
 }
