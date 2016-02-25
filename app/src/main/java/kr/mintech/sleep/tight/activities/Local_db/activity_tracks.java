@@ -14,7 +14,8 @@ public class activity_tracks {
     public int activity_id;
     public int user_id;
     public String record_type;
-    public String actionStartedAt, actionEndedAt;
+    public String actionStartedAt;
+    public String actionEndedAt;
     public String create_time;
     public String activityName;
     public String trackType;

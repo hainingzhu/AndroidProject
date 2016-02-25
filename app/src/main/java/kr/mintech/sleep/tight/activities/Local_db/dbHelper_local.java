@@ -86,7 +86,6 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
 
 
-
     public static final String TABLE_SLEEP_TRACK_DISTURBANCES = "sleep_track_disturbances";
     public static final String SLEEP_TRACK_DISTURBANCES_COLUMN_ID = "id";
     public static final String SLEEP_TRACK_DISTURBANCES_COLUMN_DISTURBANCEID = "sleep_disturbance_id";
@@ -126,20 +125,19 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
 
 
-
-
-
     private static final String TABLE_CREATE_SLEEP_DISTURBANCES = "Create Table sleep_disturbances (id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "disturbance_name TEXT, user_id INTEGER REFERENCES users (id));";
 
     private static final String TABLE_CREATE_SLEEP_RITUALS = "Create Table sleep_rituals (id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "ritual_name TEXT, user_id INTEGER REFERENCES users (id));";
+            "ritual_name TEXT, user_id INTEGER REFERENCES users (id), frequency INTEGER );";
 
     private static final String TABLE_CREATE_SLEEP_TRACK_DISTURBANCES = "Create Table sleep_track_disturbances (id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "sleep_disturbance_id INTEGER REFERENCES sleep_disturbance (id), sleep_track_id INTEGER REFERENCES sleep_tracks (id));";
 
     private static final String TABLE_CREATE_SLEEP_TRACK_RITUALS = "Create Table sleep_track_rituals (id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "sleep_ritual_id INTEGER REFERENCES sleep_rituals (id), sleep_track_id INTEGER REFERENCES sleep_tracks (id));";
+
+
 
 
 
@@ -234,6 +232,71 @@ public class dbHelper_local extends SQLiteOpenHelper {
     }
 
 
+
+    public static void insertSleepDisturbances (sleep_disturbances sd, Context cont)
+    {
+        dbHelper_local mdb = new dbHelper_local(cont);
+        SQLiteDatabase db = mdb.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(dbHelper_local.SLEEP_DISTURBANCES_COLUMN_ID, sd.id);
+        values.put(dbHelper_local.SLEEP_DISTURBANCES_COLUMN_DISTURBANCENAME, sd.disturbance_name);
+        values.put(dbHelper_local.SLEEP_DISTURBANCES_COLUMN_USERID, sd.user_id);
+
+        db.insert(dbHelper_local.TABLE_SLEEP_DISTURBANCES, null, values);
+        db.close();
+    }
+
+
+
+    public static void insertSleepRituals (sleep_rituals sr, Context cont)
+    {
+        dbHelper_local mdb = new dbHelper_local(cont);
+        SQLiteDatabase db = mdb.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_ID, sr.id);
+        values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_RITUALNAME, sr.ritual_name);
+        values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_USERID, sr.user_id);
+        values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_FREQUENCY, sr.frequency);
+
+        db.insert(dbHelper_local.TABLE_SLEEP_RITUALS, null, values);
+        db.close();
+    }
+
+
+
+
+    public static void insertSleepTrackRituals (sleep_track_rituals str, Context cont)
+    {
+        dbHelper_local mdb = new dbHelper_local(cont);
+        SQLiteDatabase db = mdb.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(dbHelper_local.SLEEP_TRACK_RITUALS_COLUMN_ID, str.id);
+        values.put(dbHelper_local.SLEEP_TRACK_RITUALS_COLUMN_RITUAL_ID, str.sleep_ritual_id);
+        values.put(dbHelper_local.SLEEP_TRACK_RITUALS_COLUMN_SLEEP_TRACKID, str.sleep_track_id);
+
+        db.insert(dbHelper_local.TABLE_SLEEP_TRACK_RITUALS, null, values);
+        db.close();
+    }
+
+
+
+
+    public static void insertSleepTrackDisturbance (sleep_track_disturbances std, Context cont)
+    {
+        dbHelper_local mdb = new dbHelper_local(cont);
+        SQLiteDatabase db = mdb.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(dbHelper_local.SLEEP_TRACK_DISTURBANCES_COLUMN_ID, std.id);
+        values.put(dbHelper_local.SLEEP_TRACK_DISTURBANCES_COLUMN_DISTURBANCEID, std.sleep_disturbance_id);
+        values.put(dbHelper_local.SLEEP_TRACK_DISTURBANCES_COLUMN_SLEEP_TRACKID, std.sleep_track_id);
+
+                db.insert(dbHelper_local.TABLE_SLEEP_TRACK_DISTURBANCES, null, values);
+        db.close();
+    }
 
 
 

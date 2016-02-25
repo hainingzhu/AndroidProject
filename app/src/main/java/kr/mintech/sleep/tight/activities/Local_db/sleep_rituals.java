@@ -4,10 +4,10 @@ package kr.mintech.sleep.tight.activities.Local_db;
  * Created by hbz5037 on 2/21/16.
  */
 public class sleep_rituals {
-    private int id;
-    private String ritual_name;
-    private int user_id;
-    private int frequency;
+    public int id;
+    public String ritual_name;
+    public int user_id;
+    public int frequency;
 
 
 
@@ -18,3 +18,5 @@ public class sleep_rituals {
         this.frequency = frequency;
     }
 }
+
+
