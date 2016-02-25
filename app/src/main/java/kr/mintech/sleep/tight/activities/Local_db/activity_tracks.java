@@ -19,14 +19,13 @@ public class activity_tracks {
     public String create_time;
     public String activityName;
     public String trackType;
-    //public String actionStartedAtDateTime, actionEndedAtDateTime;
+                                    //public String actionStartedAtDateTime, actionEndedAtDateTime;
     public int sortPosition;
     public String color;
 
 
     public activity_tracks  (int activity_id, int user_id, String record_type, String actionStartedAt,
-                             String actionEndedAt, String create_time, String activityName,
-                             String trackType,
+                             String actionEndedAt, String activityName, String trackType,
                              int sortPosition, String color)
     {
         this.activity_id = activity_id;
@@ -35,7 +34,6 @@ public class activity_tracks {
         this.actionStartedAt = actionStartedAt;
         this.actionEndedAt = actionEndedAt;
         this.create_time = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss z").format(new Date());
-
         this.activityName = activityName;
         this.trackType = trackType;
         this.sortPosition = sortPosition;

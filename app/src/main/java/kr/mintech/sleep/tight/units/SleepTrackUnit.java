@@ -8,8 +8,9 @@ public class SleepTrackUnit
 	public int id;
 	public int totalTimeAwake;
 	public int userId;
-	
-	public String inBedTime, outOfBedTime, wakeUpTime;
+	public String inBedTime;
+	public String outOfBedTime;
+	public String wakeUpTime;
 	public String sleepTime;
 	public String diaryDate;
 	public int sleepQuality;

@@ -38,6 +38,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
     public static final String SLEEP_TRACKS_COLUMN_TOTAL_AWAKE_TIME = "total_awake_time";
     public static final String SLEEP_TRACKS_COLUMN_SLEEP_LATENCY = "sleep_latency";
     public static final String SLEEP_TRACKS_COLUMN_CREATE_TIME = "create_time";
+    public static final String SLEEP_TRACKS_COLUMN_SDURATION = "sleepDuration";
 
 
 
@@ -109,7 +110,8 @@ public class dbHelper_local extends SQLiteOpenHelper {
             "sleep_time TIME[(P)] [WITHOUT TIME ZONE], wake_up_time TIME[(P)] [WITHOUT TIME ZONE], " +
             "out_bed_time TIME[(P)] [WITHOUT TIME ZONE], sleep_quality NUMERIC(5, 5), awake_count INT, " +
             "total_awake_time INTERVAL[FIELDS] [(P)], sleep_latency INTERVAL[FIELDS] [(P)]," +
-            "create_time TIME[(P)] [WITHOUT TIME ZONE]);";
+            "create_time TIME[(P)] [WITHOUT TIME ZONE], sleepDuration TEXT);";
+
 
     private static final String TABLE_CREATE_ACTIVITIES = "Create Table activities (id INTEGER PRIMARY KEY AUTOINCREMENT," +
             " user_id INTEGER REFERENCES users (id),color TEXT, position INTEGER" +
@@ -295,6 +297,32 @@ public class dbHelper_local extends SQLiteOpenHelper {
         values.put(dbHelper_local.SLEEP_TRACK_DISTURBANCES_COLUMN_SLEEP_TRACKID, std.sleep_track_id);
 
                 db.insert(dbHelper_local.TABLE_SLEEP_TRACK_DISTURBANCES, null, values);
+        db.close();
+    }
+
+
+
+    public static void insertSleep_tracks (sleep_tracks st, Context cont)
+    {
+        dbHelper_local mdb = new dbHelper_local(cont);
+        SQLiteDatabase db = mdb.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_ID, st.id);
+        values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_USERID, st.user_id);
+        values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_DIARY_DATE, st.diary_date);
+        values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_INBED_TIME, st.in_bed_time );
+        values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_SLEEP_TIME, st.sleep_time);
+        values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_WAKEUP_TIME, st.wake_up_time);
+        values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_OUTBED_TIME, st.out_bed_time);
+        values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_SLEEP_QUALITY, st.sleep_quality);
+        values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_AWAKE_COUNT, st.awake_count);
+        values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_TOTAL_AWAKE_TIME, st.total_awake_time );
+        values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_SLEEP_LATENCY, st.sleep_latency);
+        values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_CREATE_TIME, st.create_time);
+        values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_SDURATION, st.sleepDuration);
+
+        db.insert(dbHelper_local.TABLE_SLEEP_TRACKS, null, values);
         db.close();
     }
 

@@ -9,8 +9,10 @@ public class ActivityTrackUnit
 	public String activityName;
 	public String trackType;
 	public int activityId;
-	public String actionStartedAt, actionEndedAt;
-	public DateTime actionStartedAtDateTime, actionEndedAtDateTime;
+	public String actionStartedAt;
+	public String actionEndedAt;
+	public DateTime actionStartedAtDateTime;
+	public DateTime actionEndedAtDateTime;
 	public int sortPosition;
 	public String recordType;
 	public String color;
