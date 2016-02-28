@@ -43,8 +43,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 @SuppressWarnings("unused")
-public class AddSleepDiaryActivity extends FragmentActivity 
-	implements TimePickerListener, DurationPickerListener, TextWatcher, OnClickListener {
+public class AddSleepDiaryActivity extends FragmentActivity implements TimePickerListener, DurationPickerListener, TextWatcher, OnClickListener {
 	
 	private TextView _beforeBedAct, _beforeSleepDisturb;
 	

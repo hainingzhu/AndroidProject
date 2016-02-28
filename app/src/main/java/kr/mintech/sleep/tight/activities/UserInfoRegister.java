@@ -154,7 +154,7 @@ public class UserInfoRegister extends Activity
 
 
 			// add user into local database
-			Users u = new Users(kUserName, Integer.parseInt(kUserBirthDay), kGender, kSleepCondition);
+			Users u = new Users(StartActivity.curUID, kUserName, Integer.parseInt(kUserBirthDay), kGender, kSleepCondition);
 			Log.w("WHJ", "write user to local DB" + u.toString());
 			dbHelper_local.insertUser(u, UserInfoRegister.this);
 		}

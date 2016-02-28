@@ -23,7 +23,8 @@ public class Users {
 
 
 
-    public Users (String name,  int birthYear, String sex, String sleepCondition) {
+    public Users (int uid, String name,  int birthYear, String sex, String sleepCondition) {
+        id = uid;
         loginName = name;
         this.birthYear = birthYear;
         gender = sex;

@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class StartActivity extends Activity {
+	public static int curUID = -1;
 	private boolean _isKillAppFlag = false;
 	private RegisterController _ctrl;
 
@@ -110,6 +111,7 @@ public class StartActivity extends Activity {
 			case NumberConst.requestEndIsRegister:
 				Log.w("StartActivity", "Successfully loaded the registering info. New User?"
 						+ _ctrl._isNewUser + " / user.id = " + _ctrl.unit.id);
+				curUID = _ctrl.unit.id;
 				if (_ctrl.unit.name == null) {
 					goUserInfoRegister();
 				} else {

@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
 import kr.mintech.sleep.tight.utils.DateTime;
 
@@ -63,8 +64,8 @@ public class dbHelper_local extends SQLiteOpenHelper {
     public static final String ACTIVITIES_COLUMN_ID = "id";
                                                                                  //public static final String ACTIVITY_COLUMN_ACTIVITYID = "activityId";
     public static final String ACTIVITIES_COLUMN_USERID = "user_id";
-    public static final String ACTIVITIES_COLUMN_COLOR = "color";
-    public static final String ACTIVITIES_COLUMN_POSITION = "position";
+    //public static final String ACTIVITIES_COLUMN_COLOR = "color";
+    //public static final String ACTIVITIES_COLUMN_POSITION = "position";
     public static final String ACTIVITIES_COLUMN_ACTIVITY_NAME = "activity_name";
     public static final String ACTIVITIES_COLUMN_DEFAULTTYPE = "defaultType";
     public static final String ACTIVITIES_COLUMN_ISHIDE = "isHide";
@@ -102,7 +103,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
 
 
-    private static final String TABLE_CREATE_USERS = "Create Table users (id INTEGER primary key, " +
+    private static final String TABLE_CREATE_USERS = "Create Table users (id integer, " +
             "nickname text not null, birthYear INTEGER, gender text, sleepCondition text, start_date text);";
 
     private static final String TABLE_CREATE_SLEEP_TRACKS = "Create Table sleep_tracks (id INTEGER primary key AUTOINCREMENT, " +
@@ -114,7 +115,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
 
     private static final String TABLE_CREATE_ACTIVITIES = "Create Table activities (id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            " user_id INTEGER REFERENCES users (id),color TEXT, position INTEGER" +
+            " user_id INTEGER REFERENCES users (id)," +
             "activity_name TEXT, defaultType INTEGER, isHide INTEGER);";
 
 
@@ -148,6 +149,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
     public dbHelper_local (Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        Log.w("WHJ", String.format("DB: %s is created", DATABASE_NAME));
     }
 
     @Override
@@ -185,6 +187,25 @@ public class dbHelper_local extends SQLiteOpenHelper {
         db.close();
     }
 
+    public static int curUserID(Context cont)
+    {
+        Log.w("WHJ", "function call: curUserID()");
+        dbHelper_local mdb = new dbHelper_local(cont);
+        SQLiteDatabase db = mdb.getReadableDatabase();
+
+        Cursor res = db.query(TABLE_USERS, new String[]{USERS_COLUMN_ID}, null, null, null, null, null, "1");
+        int cidx = res.getColumnIndex(USERS_COLUMN_ID);
+        //Log.w("WHJ", String.format("USERS_COLUMN_ID column index %d", cidx));
+        int uid = -100;
+        if (res.moveToFirst()) {
+            Log.w("WHJ", "move to first row");
+            uid = res.getInt(cidx);
+        }
+        res.close();
+        db.close();
+        Log.w("WHJ", String.format("successfully retrieve user %d from DB", uid));
+        return uid;
+    }
 
 
     public static void insertActivities(activities a, Context cont)
@@ -193,10 +214,8 @@ public class dbHelper_local extends SQLiteOpenHelper {
         SQLiteDatabase db = mdb.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(dbHelper_local.ACTIVITIES_COLUMN_ID, a.id);
+        //values.put(dbHelper_local.ACTIVITIES_COLUMN_ID, a.id);
         values.put(dbHelper_local.ACTIVITIES_COLUMN_USERID, a.user_id);
-        values.put(dbHelper_local.ACTIVITIES_COLUMN_COLOR, a.color);
-        values.put(dbHelper_local.ACTIVITIES_COLUMN_POSITION, a.position );
         values.put(dbHelper_local.ACTIVITIES_COLUMN_ACTIVITY_NAME, a.activity_name);
         values.put(dbHelper_local.ACTIVITIES_COLUMN_DEFAULTTYPE, a.defaultType);
         values.put(dbHelper_local.ACTIVITIES_COLUMN_ISHIDE, a.isHide);

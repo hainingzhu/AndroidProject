@@ -57,8 +57,8 @@ public class backgroundTask extends IntentService {
 
             values.put(dbHelper_local.ACTIVITIES_COLUMN_ID, u.getQueryParameter("id"));
             values.put(dbHelper_local.ACTIVITIES_COLUMN_USERID, u.getQueryParameter("user_id"));
-            values.put(dbHelper_local.ACTIVITIES_COLUMN_COLOR, u.getQueryParameter("color"));
-            values.put(dbHelper_local.ACTIVITIES_COLUMN_POSITION, u.getQueryParameter("position") );
+            //values.put(dbHelper_local.ACTIVITIES_COLUMN_COLOR, u.getQueryParameter("color"));
+            //values.put(dbHelper_local.ACTIVITIES_COLUMN_POSITION, u.getQueryParameter("position") );
             values.put(dbHelper_local.ACTIVITIES_COLUMN_ACTIVITY_NAME, u.getQueryParameter("activity_name"));
             values.put(dbHelper_local.ACTIVITIES_COLUMN_DEFAULTTYPE, u.getQueryParameter("activity_name"));
 

@@ -3,6 +3,8 @@ package kr.mintech.sleep.tight.views;
 import java.util.Calendar;
 
 import kr.mintech.sleep.tight.R;
+import kr.mintech.sleep.tight.activities.Local_db.activities;
+import kr.mintech.sleep.tight.activities.Local_db.dbHelper_local;
 import kr.mintech.sleep.tight.activities.popups.AddDurationAcitivity;
 import kr.mintech.sleep.tight.activities.popups.DeleteTracksActivity;
 import kr.mintech.sleep.tight.activities.sleepdiarys.AddSleepDiaryActivity;
@@ -38,6 +40,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
 
 public class AddActivityView extends Fragment
 {
@@ -201,14 +204,28 @@ public class AddActivityView extends Fragment
 			Pie pie = Pie.getInst();
 			String strHandleTime = pie.handleTime.getStringTime(SleepTightConstants.NetworkFormat);
 			// CLEANUP // Logg.w("AddActivityView | enclosing_method()", "Handle Time: " + strHandleTime + " Action Id " + $actionId);
+
+            // add activity into the Activity table
+            insertInto_ActivityDB((int)($actionId));
+            Log.w("WHJ", "record activity in local DB");
+
 			_controller.reqeustAddActivityTrack((int) $actionId, strHandleTime, null);
 
-			EventLogger.log("add_activity", 
-					"where", "app", 
-					"type", "frequency",
-					"activityId", $actionId);
+			EventLogger.log("add_activity",
+                    "where", "app",
+                    "type", "frequency",
+                    "activityId", $actionId);
 		}
 	};
+
+    private void insertInto_ActivityDB(int actionID)
+    {
+        Log.w("WHJ", String.format("insert activity with ID %d", actionID));
+        int uid = dbHelper_local.curUserID(this._context);
+        activities a = new activities(uid, actionID, 0);
+        Log.w("WHJ", String.format("User %d with activity %s is inserted", uid, a.activity_name));
+        dbHelper_local.insertActivities(a, this._context);
+    }
 	
 	private OnItemLongClickListener actionItemLongClickListener = new OnItemLongClickListener()	{
 		@Override
