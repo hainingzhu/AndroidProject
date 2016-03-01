@@ -7,6 +7,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import kr.mintech.sleep.tight.utils.DateTime;
 
 /**
@@ -232,7 +235,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
         SQLiteDatabase db = mdb.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_ID, aT.id);
+        //values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_ID, aT.id);
         values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_ACTIVITYID, aT.activity_id);
         values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_USERID, aT.user_id);
         //values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_RECORDTYPE, aT.record_type );
@@ -343,6 +346,54 @@ public class dbHelper_local extends SQLiteOpenHelper {
         db.close();
     }
 
+
+
+
+
+
+    public static void insertInto_ActivityDB(Context con, int actionID, String actName, String startT)
+    {
+        Log.w("WHJ", String.format("insert activity %s with ID %d", actName, actionID));
+        int uid = dbHelper_local.curUserID(con);
+        activities a = new activities(uid, actionID, actName, 0);
+
+        Log.w("WHJ", String.format("User %d with activity %s is inserted", uid, a.activity_name));
+        dbHelper_local.insertActivities(a, con);
+    }
+
+    /**
+     * insert data into local database, Table activity tract
+     *
+     * Input:
+     *
+     * @param actionID
+     * @param actName
+     *
+     * Table:
+     * id - autoincrement
+     * activity_id - actionID
+     * user_id - in the function. "dbHelper_local.curUserID(this._context)"
+     * record_type - None
+     * actionStartedAt - startT
+     * actionEndedAt - None
+     * createTime - new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+     * activityName - actName
+     * tractType -
+     *
+     */
+
+    public static void insertInto_ActivityTrackDB(Context con, int actionID, String actionStartedAt, String actionEndedAt, String actName)
+    {
+        int uid = dbHelper_local.curUserID(con);
+        String create_time = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+
+        activity_tracks at = new activity_tracks(actionID, uid, actionStartedAt, actionEndedAt, create_time, actName);
+
+
+        Log.w("zzz", String.format("User %d with activity id %d activity name %s is inserted, action start at %s end at %s creat time is %s."
+                , uid, actionID, at.activityName, at.actionStartedAt, at.actionEndedAt, at.create_time));
+        dbHelper_local.insertActivityTracks(at, con);
+    }
 
 
 

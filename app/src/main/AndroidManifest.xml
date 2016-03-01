@@ -59,6 +59,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/transparent_background_dialog_activity" />
         <activity
+            android:name="kr.mintech.sleep.tight.activities.popups.AddDurationAcitivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/transparent_background_dialog_activity" />
+        <activity
             android:name="kr.mintech.sleep.tight.activities.sleepdiarys.SummaryBinInfoActivity"
             android:screenOrientation="portrait"
             android:theme="@style/transparent_background_dialog_activity" />
