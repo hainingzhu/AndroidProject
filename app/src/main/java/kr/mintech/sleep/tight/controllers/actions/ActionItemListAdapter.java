@@ -48,6 +48,8 @@ public class ActionItemListAdapter extends BaseAdapter {
 	public Object getItem(int $position) {
 		return $position;
 	}
+
+	public String getItemName(int pos) { return _actions.get(pos).name; }
 		
 	@Override
 	public long getItemId(int $position) {

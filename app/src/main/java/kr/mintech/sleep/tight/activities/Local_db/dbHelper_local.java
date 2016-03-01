@@ -67,7 +67,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
     //public static final String ACTIVITIES_COLUMN_COLOR = "color";
     //public static final String ACTIVITIES_COLUMN_POSITION = "position";
     public static final String ACTIVITIES_COLUMN_ACTIVITY_NAME = "activity_name";
-    public static final String ACTIVITIES_COLUMN_DEFAULTTYPE = "defaultType";
+    //public static final String ACTIVITIES_COLUMN_DEFAULTTYPE = "defaultType";
     public static final String ACTIVITIES_COLUMN_ISHIDE = "isHide";
 
 
@@ -114,9 +114,8 @@ public class dbHelper_local extends SQLiteOpenHelper {
             "create_time TIME[(P)] [WITHOUT TIME ZONE], sleepDuration TEXT);";
 
 
-    private static final String TABLE_CREATE_ACTIVITIES = "Create Table activities (id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            " user_id INTEGER REFERENCES users (id)," +
-            "activity_name TEXT, defaultType INTEGER, isHide INTEGER);";
+    private static final String TABLE_CREATE_ACTIVITIES = "Create Table activities (id int PRIMARY KEY," +
+            " user_id INTEGER REFERENCES users (id), activity_name TEXT, isHide INTEGER);";
 
 
     private static final String TABLE_CREATE_ACTIVITY_TRACKS = "Create Table activity_tracks (id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -214,10 +213,9 @@ public class dbHelper_local extends SQLiteOpenHelper {
         SQLiteDatabase db = mdb.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        //values.put(dbHelper_local.ACTIVITIES_COLUMN_ID, a.id);
+        values.put(dbHelper_local.ACTIVITIES_COLUMN_ID, a.id);
         values.put(dbHelper_local.ACTIVITIES_COLUMN_USERID, a.user_id);
         values.put(dbHelper_local.ACTIVITIES_COLUMN_ACTIVITY_NAME, a.activity_name);
-        values.put(dbHelper_local.ACTIVITIES_COLUMN_DEFAULTTYPE, a.defaultType);
         values.put(dbHelper_local.ACTIVITIES_COLUMN_ISHIDE, a.isHide);
 
         db.insert(dbHelper_local.TABLE_ACTIVITIES, null, values);

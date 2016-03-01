@@ -14,6 +14,7 @@ import kr.mintech.sleep.tight.controllers.actions.ActionController;
 import kr.mintech.sleep.tight.controllers.actions.ActionItemListAdapter;
 import kr.mintech.sleep.tight.controllers.timeline.TimeLineController;
 import kr.mintech.sleep.tight.listeners.OnRequestEndListener;
+import kr.mintech.sleep.tight.units.ActionUnit;
 import kr.mintech.sleep.tight.units.SleepTrackUnit;
 import kr.mintech.sleep.tight.utils.DateTime;
 import kr.mintech.sleep.tight.utils.EventLogger;
@@ -206,7 +207,8 @@ public class AddActivityView extends Fragment
 			// CLEANUP // Logg.w("AddActivityView | enclosing_method()", "Handle Time: " + strHandleTime + " Action Id " + $actionId);
 
             // add activity into the Activity table
-            insertInto_ActivityDB((int)($actionId));
+            String actName = _actionListAdapter.getItemName(pos);
+            insertInto_ActivityDB((int)($actionId), actName, strHandleTime);
             Log.w("WHJ", "record activity in local DB");
 
 			_controller.reqeustAddActivityTrack((int) $actionId, strHandleTime, null);
@@ -218,11 +220,31 @@ public class AddActivityView extends Fragment
 		}
 	};
 
-    private void insertInto_ActivityDB(int actionID)
+    /**
+     * insert data into local database, Table activity tract
+     *
+     * Input:
+     * @param startT
+     * @param actionID
+     * @param actName
+     *
+     * Table:
+     * id - autoincrement
+     * activity_id - actionID
+     * user_id - in the function. "dbHelper_local.curUserID(this._context)"
+     * record_type - None
+     * actionStartedAt - startT
+     * actionEndedAt - None
+     * createTime - new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+     * activityName - actName
+     * tractType -
+     *
+     */
+    private void insertInto_ActivityDB(int actionID, String actName, String startT)
     {
-        Log.w("WHJ", String.format("insert activity with ID %d", actionID));
+        Log.w("WHJ", String.format("insert activity %s with ID %d", actName, actionID));
         int uid = dbHelper_local.curUserID(this._context);
-        activities a = new activities(uid, actionID, 0);
+        activities a = new activities(uid, actionID, actName, 0);
         Log.w("WHJ", String.format("User %d with activity %s is inserted", uid, a.activity_name));
         dbHelper_local.insertActivities(a, this._context);
     }
