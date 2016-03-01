@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 import kr.mintech.sleep.tight.R;
 import kr.mintech.sleep.tight.activities.Local_db.activities;
+import kr.mintech.sleep.tight.activities.Local_db.activity_tracks;
 import kr.mintech.sleep.tight.activities.Local_db.dbHelper_local;
 import kr.mintech.sleep.tight.activities.popups.AddDurationAcitivity;
 import kr.mintech.sleep.tight.activities.popups.DeleteTracksActivity;
@@ -220,11 +221,22 @@ public class AddActivityView extends Fragment
 		}
 	};
 
+
+    private void insertInto_ActivityDB(int actionID, String actName, String startT)
+    {
+        Log.w("WHJ", String.format("insert activity %s with ID %d", actName, actionID));
+        int uid = dbHelper_local.curUserID(this._context);
+        activities a = new activities(uid, actionID, actName, 0);
+
+        Log.w("WHJ", String.format("User %d with activity %s is inserted", uid, a.activity_name));
+        dbHelper_local.insertActivities(a, this._context);
+    }
+
     /**
      * insert data into local database, Table activity tract
      *
      * Input:
-     * @param startT
+     *
      * @param actionID
      * @param actName
      *
@@ -240,14 +252,22 @@ public class AddActivityView extends Fragment
      * tractType -
      *
      */
-    private void insertInto_ActivityDB(int actionID, String actName, String startT)
+
+    private void insertInto_ActivityTrackDB(int actionID, String actionStartedAt, String actionEndedAt, String create_time, String actName)
     {
-        Log.w("WHJ", String.format("insert activity %s with ID %d", actName, actionID));
         int uid = dbHelper_local.curUserID(this._context);
-        activities a = new activities(uid, actionID, actName, 0);
-        Log.w("WHJ", String.format("User %d with activity %s is inserted", uid, a.activity_name));
-        dbHelper_local.insertActivities(a, this._context);
+
+        activity_tracks at = new activity_tracks(actionID, uid, actionStartedAt, actionEndedAt, create_time, actName);
+
+
+        Log.w("zzz", String.format("User %d with activity id %d activity name %s is inserted, action start at %s end at %s creat time is %s."
+                , uid, actionID, at.activityName, at.actionStartedAt, at.actionEndedAt, at.create_time));
+        dbHelper_local.insertActivityTracks(at, this._context);
     }
+
+
+
+
 	
 	private OnItemLongClickListener actionItemLongClickListener = new OnItemLongClickListener()	{
 		@Override

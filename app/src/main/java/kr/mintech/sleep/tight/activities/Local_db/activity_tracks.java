@@ -13,42 +13,40 @@ public class activity_tracks {
     public int id;
     public int activity_id;
     public int user_id;
-    public String record_type;
+    //public String record_type;
     public String actionStartedAt;
     public String actionEndedAt;
     public String create_time;
     public String activityName;
-    public String trackType;
+    //public String trackType;
                                     //public String actionStartedAtDateTime, actionEndedAtDateTime;
-    public int sortPosition;
-    public String color;
+    //public int sortPosition;
+    //public String color;
 
 
-    public activity_tracks  (int activity_id, int user_id, String record_type, String actionStartedAt,
-                             String actionEndedAt, String activityName, String trackType,
-                             int sortPosition, String color)
+    public activity_tracks  (int activity_id, int user_id, String actionStartedAt,
+                             String actionEndedAt, String create_time, String activityName)
     {
         this.activity_id = activity_id;
         this.user_id = user_id;
-        this.record_type = record_type;
+        //this.record_type = record_type;
         this.actionStartedAt = actionStartedAt;
         this.actionEndedAt = actionEndedAt;
         this.create_time = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss z").format(new Date());
         this.activityName = activityName;
-        this.trackType = trackType;
-        this.sortPosition = sortPosition;
-        this.color = color;
+        //this.trackType = trackType;
+        //this.sortPosition = sortPosition;
+        //this.color = color;
     }
 
 
     @Override
     public String toString()
     {
-        return String.format("Id: %d, ActivityId: %d, UserId: %d, recordType: %s, actionStartedAt: %s, " +
-                        "actionEndedAt: %s, createTime: %s, activityName: %s, trackType: %s, " +
-                        "sortPosition: %d, color: %s ",
-                id, activity_id, user_id, record_type, actionStartedAt, actionEndedAt, create_time,
-                activityName, trackType, sortPosition, color);
+        return String.format("Id: %d, ActivityId: %d, UserId: %d, actionStartedAt: %s, " +
+                        "actionEndedAt: %s, createTime: %s, activityName: %s, ",
+                id, activity_id, user_id,  actionStartedAt, actionEndedAt, create_time,
+                activityName);
     }
 
 

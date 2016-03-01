@@ -226,7 +226,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
 
 
-    public static void insertActivitiesTracks (activity_tracks aT, Context cont)
+    public static void insertActivityTracks (activity_tracks aT, Context cont)
     {
         dbHelper_local mdb = new dbHelper_local(cont);
         SQLiteDatabase db = mdb.getWritableDatabase();
@@ -235,15 +235,15 @@ public class dbHelper_local extends SQLiteOpenHelper {
         values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_ID, aT.id);
         values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_ACTIVITYID, aT.activity_id);
         values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_USERID, aT.user_id);
-        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_RECORDTYPE, aT.record_type );
+        //values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_RECORDTYPE, aT.record_type );
         values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_STARTTIME, aT.actionStartedAt);
         values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_ENDTIME, aT.actionEndedAt);
         values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_CREATETIME, aT.create_time);
 
         values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_ACTIVITYNAME, aT.activityName);
-        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_TRACKTYPE, aT.trackType);
-        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_SORTPOSITION, aT.sortPosition);
-        values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_COLOR, aT.color);
+       // values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_TRACKTYPE, aT.trackType);
+       // values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_SORTPOSITION, aT.sortPosition);
+       // values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_COLOR, aT.color);
 
         db.insert(dbHelper_local.TABLE_ACTIVITY_TRACKS, null, values);
         db.close();
