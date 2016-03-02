@@ -1,7 +1,9 @@
 package kr.mintech.sleep.tight.activities;
 
 import kr.mintech.sleep.tight.R;
+import kr.mintech.sleep.tight.activities.Local_db.Users;
 import kr.mintech.sleep.tight.activities.Local_db.backgroundTask;
+import kr.mintech.sleep.tight.activities.Local_db.dbHelper_local;
 import kr.mintech.sleep.tight.consts.NumberConst;
 import kr.mintech.sleep.tight.consts.StringConst;
 import kr.mintech.sleep.tight.controllers.RegisterController;
@@ -76,11 +78,15 @@ public class StartActivity extends Activity {
 				Log.w("WHJ", "The server is available.");
 				requestIsRegister();
 			} else {
-				Toast.makeText(this, "Inappropriate Network Connection", Toast.LENGTH_SHORT)
+				Toast.makeText(this, "Inappropriate Network Connection. Offline mode", Toast.LENGTH_SHORT)
 						.show();
-				return;
+                if (userInLocalDB())
+                    allRequestEnded();
+                else
+                    _descriptionText.setText("Internet is not available. And there is no registered user.");
 			}
 		}
+        return;
 	}
 
 	private void goUserInfoRegister() {
@@ -104,6 +110,17 @@ public class StartActivity extends Activity {
 		_ctrl.requestIsRegister();
 	}
 
+
+	public boolean userInLocalDB() {
+        Log.w("WHJ", "Test whether the user information is available locally");
+		_descriptionText.setText("Find User locally");
+		int uid = dbHelper_local.curUserID(this);
+        if (uid != -100) {
+            return true;
+        } else
+            return false;
+	}
+
 	private OnRequestEndListener onRequestEndListener = new OnRequestEndListener() {
 		@Override
 		public void onRequestEnded(int $tag, Object $object) {
@@ -116,6 +133,13 @@ public class StartActivity extends Activity {
 					goUserInfoRegister();
 				} else {
 					allRequestEnded();
+                    // if user is not available locally,
+                    // but he's registered in the server
+                    // create a dummy user in local DB
+                    if (!userInLocalDB()) {
+                        Users u = new Users(_ctrl.unit.id, "", 2016, "", "");
+                        dbHelper_local.insertUser(u, StartActivity.this);
+                    }
 				}
 
                 // add user info to local database
