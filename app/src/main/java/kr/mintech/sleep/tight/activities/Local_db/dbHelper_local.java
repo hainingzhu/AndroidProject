@@ -200,12 +200,11 @@ public class dbHelper_local extends SQLiteOpenHelper {
         //Log.w("WHJ", String.format("USERS_COLUMN_ID column index %d", cidx));
         int uid = -100;
         if (res.moveToFirst()) {
-            Log.w("WHJ", "move to first row");
             uid = res.getInt(cidx);
+            Log.w("WHJ", String.format("User %d is in local DB", uid));
         }
         res.close();
         db.close();
-        Log.w("WHJ", String.format("successfully retrieve user %d from DB", uid));
         return uid;
     }
 
