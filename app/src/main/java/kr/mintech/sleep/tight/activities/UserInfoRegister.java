@@ -6,7 +6,7 @@ import java.util.Date;
 
 import kr.mintech.sleep.tight.R;
 import kr.mintech.sleep.tight.activities.Local_db.Users;
-import kr.mintech.sleep.tight.activities.Local_db.backgroundTask;
+//import kr.mintech.sleep.tight.activities.Local_db.backgroundTask;
 import kr.mintech.sleep.tight.activities.Local_db.dbHelper_local;
 import kr.mintech.sleep.tight.consts.NumberConst;
 import kr.mintech.sleep.tight.controllers.RegisterController;

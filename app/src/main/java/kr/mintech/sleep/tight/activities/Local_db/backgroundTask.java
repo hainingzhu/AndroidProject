@@ -14,6 +14,7 @@ import kr.mintech.sleep.tight.activities.Local_db.dbHelper_local;
 /**
  * Created by hbz5037 on 2/21/16.
  */
+ /*
 public class backgroundTask extends IntentService {
 
 
@@ -24,6 +25,7 @@ public class backgroundTask extends IntentService {
         Log.w("hjx", "create background service");
         //mdb = new dbHelper_local(getContext());
     }
+
 
     @Override
     protected void onHandleIntent(Intent dbint) {
@@ -75,7 +77,7 @@ public class backgroundTask extends IntentService {
             values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_USERID, u.getQueryParameter("user_id"));
             //values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_DIARY_DATE, u.getdate("diary_date"));
             values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_INBED_TIME, u.getQueryParameter("in_bed_time") );
-            values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_SLEEP_TIME, u.getQueryParameter("sleep_time"));
+
             values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_WAKEUP_TIME, u.getQueryParameter("wake_up_time"));
 
             values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_OUTBED_TIME, u.getQueryParameter("out_bed_time"));
@@ -164,10 +166,5 @@ public class backgroundTask extends IntentService {
 
 
 
-    /*
-    public void createUser_DB() {
-
-
-    }
-    */
 }
+*/
