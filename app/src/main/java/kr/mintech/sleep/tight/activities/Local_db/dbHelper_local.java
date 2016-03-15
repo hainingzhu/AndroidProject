@@ -225,6 +225,24 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
     }
 
+    public static boolean findActivities(String activity, Context con)
+    {
+        Log.w("WHJ", "function call: findActivities()");
+        dbHelper_local mdb = new dbHelper_local(con);
+        SQLiteDatabase db = mdb.getReadableDatabase();
+
+        Cursor res = db.query(TABLE_ACTIVITIES, new String[]{ACTIVITIES_COLUMN_ID}, String.format("%s=\"%s\"", ACTIVITIES_COLUMN_ACTIVITY_NAME, activity), null, null, null, null, null);
+        if (res.moveToFirst()) {
+            res.close();
+            db.close();
+            return true;
+        } else {
+            res.close();
+            db.close();
+            return false;
+        }
+    }
+
 
 
 
@@ -355,8 +373,12 @@ public class dbHelper_local extends SQLiteOpenHelper {
         int uid = dbHelper_local.curUserID(con);
         activities a = new activities(uid, actionID, actName, 0);
 
-        Log.w("WHJ", String.format("User %d with activity %s is inserted", uid, a.activity_name));
-        dbHelper_local.insertActivities(a, con);
+        if (dbHelper_local.findActivities(a.activity_name, con)) {
+            Log.w("WHJ", String.format("Activity %s is already in the database", a.activity_name));
+        } else {
+            Log.w("WHJ", String.format("User %d with activity %s is inserted", uid, a.activity_name));
+            dbHelper_local.insertActivities(a, con);
+        }
     }
 
     /**
