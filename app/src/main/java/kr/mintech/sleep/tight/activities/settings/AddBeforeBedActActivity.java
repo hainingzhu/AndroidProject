@@ -1,12 +1,15 @@
 package kr.mintech.sleep.tight.activities.settings;
 
 import kr.mintech.sleep.tight.R;
+import kr.mintech.sleep.tight.activities.Local_db.dbHelper_local;
+import kr.mintech.sleep.tight.activities.Local_db.sleep_rituals;
 import kr.mintech.sleep.tight.consts.NumberConst;
 import kr.mintech.sleep.tight.controllers.settings.BeforeBedActController;
 import kr.mintech.sleep.tight.listeners.OnRequestEndListener;
 import Util.Logg;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -58,8 +61,15 @@ public class AddBeforeBedActActivity extends Activity
 						Toast.makeText(AddBeforeBedActActivity.this, "Name is null", Toast.LENGTH_SHORT).show();
 						return;
 					}
-					_controller.requestAddBeforeBedAct(_editActivity.getText().toString());
-					break;
+                    String ritualName = _editActivity.getText().toString();
+					_controller.requestAddBeforeBedAct(ritualName);
+
+                    // add ritual category into local DB
+                    int uid = dbHelper_local.curUserID(AddBeforeBedActActivity.this);
+                    sleep_rituals sr = new sleep_rituals(ritualName, uid, 0);
+                    dbHelper_local.insertSleepRituals(sr, AddBeforeBedActActivity.this);
+                    Log.w("WHJ", String.format("Add ritual category %s for user %d.", ritualName, uid));
+                    break;
 				
 				default:
 					break;

@@ -151,7 +151,6 @@ public class dbHelper_local extends SQLiteOpenHelper {
     public dbHelper_local (Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        Log.w("WHJ", String.format("DB: %s is created", DATABASE_NAME));
     }
 
     @Override
@@ -278,7 +277,6 @@ public class dbHelper_local extends SQLiteOpenHelper {
         SQLiteDatabase db = mdb.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(dbHelper_local.SLEEP_DISTURBANCES_COLUMN_ID, sd.id);
         values.put(dbHelper_local.SLEEP_DISTURBANCES_COLUMN_DISTURBANCENAME, sd.disturbance_name);
         values.put(dbHelper_local.SLEEP_DISTURBANCES_COLUMN_USERID, sd.user_id);
 
@@ -294,7 +292,6 @@ public class dbHelper_local extends SQLiteOpenHelper {
         SQLiteDatabase db = mdb.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_ID, sr.id);
         values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_RITUALNAME, sr.ritual_name);
         values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_USERID, sr.user_id);
         values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_FREQUENCY, sr.frequency);

@@ -1,12 +1,15 @@
 package kr.mintech.sleep.tight.activities.settings;
 
 import kr.mintech.sleep.tight.R;
+import kr.mintech.sleep.tight.activities.Local_db.dbHelper_local;
+import kr.mintech.sleep.tight.activities.Local_db.sleep_disturbances;
 import kr.mintech.sleep.tight.consts.NumberConst;
 import kr.mintech.sleep.tight.controllers.settings.EditSleepDisturbController;
 import kr.mintech.sleep.tight.listeners.OnRequestEndListener;
 import Util.Logg;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -58,7 +61,15 @@ public class AddSleepDisturbActivity extends Activity
 						Toast.makeText(AddSleepDisturbActivity.this, "Name is null", Toast.LENGTH_SHORT).show();
 						return;
 					}
-					_controller.requestAddSleepDisturb(_editActivity.getText().toString());
+                    String disturbName = _editActivity.getText().toString();
+					_controller.requestAddSleepDisturb(disturbName);
+
+                    // add sleep disturbance to local DB
+                    int uid = dbHelper_local.curUserID(AddSleepDisturbActivity.this);
+                    sleep_disturbances sd = new sleep_disturbances(disturbName, uid);
+                    dbHelper_local.insertSleepDisturbances(sd, AddSleepDisturbActivity.this);
+                    Log.w("WHJ", String.format("Insert disturbance %s for current user %d.", disturbName, uid));
+
 					break;
 				
 				default:
