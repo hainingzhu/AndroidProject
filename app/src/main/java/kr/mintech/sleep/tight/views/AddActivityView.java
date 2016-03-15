@@ -214,6 +214,7 @@ public class AddActivityView extends Fragment
             dbHelper_local.insertInto_ActivityDB(clickedView.getContext(), (int) ($actionId), actName, strHandleTime);
             Log.w("WHJ", "record activity in local DB");
 
+            // add activity tracks into activty_tracks table
             dbHelper_local.insertInto_ActivityTrackDB(clickedView.getContext(), (int) ($actionId), strHandleTime, "", actName);
 
 			_controller.reqeustAddActivityTrack((int) $actionId, strHandleTime, null);
