@@ -13,4 +13,10 @@ public class sleep_track_disturbances {
         this.sleep_disturbance_id = sleep_disturbance_id;
         this.sleep_track_id = sleep_track_id;
     }
+
+
+    @Override
+    public String toString() {
+        return String.format("disturbance_id: %d, track_id: %d", sleep_disturbance_id, sleep_track_id);
+    }
 }

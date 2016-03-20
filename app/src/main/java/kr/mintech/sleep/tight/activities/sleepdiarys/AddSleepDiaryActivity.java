@@ -25,6 +25,10 @@ import java.util.Calendar;
 import Util.PopupUtil;
 import kr.mintech.sleep.tight.R;
 import kr.mintech.sleep.tight.activities.Local_db.dbHelper_local;
+import kr.mintech.sleep.tight.activities.Local_db.sleep_disturbances;
+import kr.mintech.sleep.tight.activities.Local_db.sleep_rituals;
+import kr.mintech.sleep.tight.activities.Local_db.sleep_track_disturbances;
+import kr.mintech.sleep.tight.activities.Local_db.sleep_track_rituals;
 import kr.mintech.sleep.tight.activities.Local_db.sleep_tracks;
 import kr.mintech.sleep.tight.consts.NumberConst;
 import kr.mintech.sleep.tight.consts.SleepTightConstants;
@@ -467,13 +471,36 @@ public class AddSleepDiaryActivity extends FragmentActivity implements TimePicke
 				Pie.getInst().beforeBedActIdArr, Pie.getInst().sleepDisturbIdArr);
 
 
-		// write into local DB
+		// write *sleep_tracks* into local DB
 		int uid = dbHelper_local.curUserID(this);
 		sleep_tracks st = new sleep_tracks(uid, strToBedTime,_sleepLetency,
 				strWakeUpTime, strOutBedTime, sleepduration, sleepQuality, kAwakeCount,
 				awakeDuration);
-		dbHelper_local.insertSleep_tracks(st, this);
+		long sTrackID = dbHelper_local.insertSleep_tracks(st, this);
         Log.w("WHJ", st.toString());
+
+
+        // write *sleep_track_rituals* into local DB
+        for (String s : Pie.getInst().beforeBedActArr) {
+            long sRitualID = dbHelper_local.findSleepRituals(s, this);
+            if (sRitualID == -1) {  // if the ritual is not in DB yet
+                sleep_rituals sr = new sleep_rituals(s, uid, 1);
+                sRitualID = dbHelper_local.insertSleepRituals(sr, this);
+            }
+            sleep_track_rituals slTrRi = new sleep_track_rituals((int) sRitualID, (int) sTrackID);
+            dbHelper_local.insertSleepTrackRituals(slTrRi, this);
+        }
+
+        // write *sleep_track_disturbances* into local DB
+        for (String s : Pie.getInst().sleepDisturbArr) {
+            long sDisturbID = dbHelper_local.findSleepDisturbances(s, this);
+            if (sDisturbID == -1) {  // if the ritual is not in DB yet
+                sleep_disturbances sd = new sleep_disturbances(s, uid);
+                sDisturbID = dbHelper_local.insertSleepDisturbances(sd, this);
+            }
+            sleep_track_disturbances slTrDi = new sleep_track_disturbances((int) sDisturbID, (int) sTrackID);
+            dbHelper_local.insertSleepTrackDisturbance(slTrDi, this);
+        }
 	}
 
 	public void onCancelClick(View v) {
