@@ -15,4 +15,8 @@ public class sleep_track_rituals {
     }
 
 
+    @Override
+    public String toString() {
+        return String.format("sleep_ritual_id: %d, sleep_track_id: %d", sleep_ritual_id, sleep_track_id);
+    }
 }

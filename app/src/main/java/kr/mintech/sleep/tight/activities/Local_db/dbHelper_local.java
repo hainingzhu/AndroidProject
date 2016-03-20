@@ -286,7 +286,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
 
 
-    public static void insertSleepRituals (sleep_rituals sr, Context cont)
+    public static long insertSleepRituals (sleep_rituals sr, Context cont)
     {
         dbHelper_local mdb = new dbHelper_local(cont);
         SQLiteDatabase db = mdb.getWritableDatabase();
@@ -296,8 +296,29 @@ public class dbHelper_local extends SQLiteOpenHelper {
         values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_USERID, sr.user_id);
         values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_FREQUENCY, sr.frequency);
 
-        db.insert(dbHelper_local.TABLE_SLEEP_RITUALS, null, values);
+        long id = db.insert(dbHelper_local.TABLE_SLEEP_RITUALS, null, values);
         db.close();
+        return id;
+    }
+
+
+    public static long findSleepRituals(String ritual_name, Context cont)
+    {
+        Log.w("WHJ", "function call: findSleepRituals()");
+        dbHelper_local mdb = new dbHelper_local(cont);
+        SQLiteDatabase db = mdb.getReadableDatabase();
+
+        Cursor res = db.query(TABLE_SLEEP_RITUALS, new String[]{SLEEP_RITUALS_COLUMN_ID}, String.format("%s=\"%s\"", SLEEP_RITUALS_COLUMN_RITUALNAME, ritual_name), null, null, null, null, null);
+        if (res.moveToFirst()) {
+            long rowid = res.getLong(res.getColumnIndex(SLEEP_RITUALS_COLUMN_ID));
+            res.close();
+            db.close();
+            return rowid;
+        } else {
+            res.close();
+            db.close();
+            return -1;
+        }
     }
 
 
@@ -309,12 +330,12 @@ public class dbHelper_local extends SQLiteOpenHelper {
         SQLiteDatabase db = mdb.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(dbHelper_local.SLEEP_TRACK_RITUALS_COLUMN_ID, str.id);
         values.put(dbHelper_local.SLEEP_TRACK_RITUALS_COLUMN_RITUAL_ID, str.sleep_ritual_id);
         values.put(dbHelper_local.SLEEP_TRACK_RITUALS_COLUMN_SLEEP_TRACKID, str.sleep_track_id);
 
         db.insert(dbHelper_local.TABLE_SLEEP_TRACK_RITUALS, null, values);
         db.close();
+        Log.w("WHJ", "insert sleep_track_rituals: " + str.toString());
     }
 
 
@@ -336,7 +357,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
 
 
-    public static void insertSleep_tracks (sleep_tracks st, Context cont)
+    public static long insertSleep_tracks (sleep_tracks st, Context cont)
     {
         dbHelper_local mdb = new dbHelper_local(cont);
         SQLiteDatabase db = mdb.getWritableDatabase();
@@ -355,8 +376,9 @@ public class dbHelper_local extends SQLiteOpenHelper {
         values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_CREATE_TIME, st.create_time);
         values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_SDURATION, st.sleepDuration);
 
-        db.insert(dbHelper_local.TABLE_SLEEP_TRACKS, null, values);
+        long id = db.insert(dbHelper_local.TABLE_SLEEP_TRACKS, null, values);
         db.close();
+        return id;
     }
 
 
