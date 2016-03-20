@@ -478,7 +478,7 @@ public class AddSleepDiaryActivity extends FragmentActivity implements TimePicke
         Log.w("WHJ", st.toString());
 
 
-        // write *sleep_rituals* into local DB
+        // write *sleep_track_rituals* into local DB
         for (String s : Pie.getInst().beforeBedActArr) {
             long sRitualID = dbHelper_local.findSleepRituals(s, this);
             if (sRitualID == -1) {  // if the ritual is not in DB yet

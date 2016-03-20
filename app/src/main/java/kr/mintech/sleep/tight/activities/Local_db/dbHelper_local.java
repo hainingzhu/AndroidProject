@@ -271,7 +271,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
 
 
-    public static void insertSleepDisturbances (sleep_disturbances sd, Context cont)
+    public static long insertSleepDisturbances (sleep_disturbances sd, Context cont)
     {
         dbHelper_local mdb = new dbHelper_local(cont);
         SQLiteDatabase db = mdb.getWritableDatabase();
@@ -280,9 +280,32 @@ public class dbHelper_local extends SQLiteOpenHelper {
         values.put(dbHelper_local.SLEEP_DISTURBANCES_COLUMN_DISTURBANCENAME, sd.disturbance_name);
         values.put(dbHelper_local.SLEEP_DISTURBANCES_COLUMN_USERID, sd.user_id);
 
-        db.insert(dbHelper_local.TABLE_SLEEP_DISTURBANCES, null, values);
+        long sdid = db.insert(dbHelper_local.TABLE_SLEEP_DISTURBANCES, null, values);
         db.close();
+        return sdid;
     }
+
+
+    public static long findSleepDisturbances(String disturbance_name, Context cont)
+    {
+        Log.w("WHJ", "function call: findSleepDisturbances()");
+        dbHelper_local mdb = new dbHelper_local(cont);
+        SQLiteDatabase db = mdb.getReadableDatabase();
+
+        Cursor res = db.query(TABLE_SLEEP_DISTURBANCES, new String[]{SLEEP_DISTURBANCES_COLUMN_ID},
+                String.format("%s=\"%s\"", SLEEP_DISTURBANCES_COLUMN_DISTURBANCENAME, disturbance_name), null, null, null, null, null);
+        if (res.moveToFirst()) {
+            long rowid = res.getLong(res.getColumnIndex(SLEEP_DISTURBANCES_COLUMN_ID));
+            res.close();
+            db.close();
+            return rowid;
+        } else {
+            res.close();
+            db.close();
+            return -1;
+        }
+    }
+
 
 
 
