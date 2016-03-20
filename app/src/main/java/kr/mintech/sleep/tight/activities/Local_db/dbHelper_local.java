@@ -370,12 +370,12 @@ public class dbHelper_local extends SQLiteOpenHelper {
         SQLiteDatabase db = mdb.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(dbHelper_local.SLEEP_TRACK_DISTURBANCES_COLUMN_ID, std.id);
         values.put(dbHelper_local.SLEEP_TRACK_DISTURBANCES_COLUMN_DISTURBANCEID, std.sleep_disturbance_id);
         values.put(dbHelper_local.SLEEP_TRACK_DISTURBANCES_COLUMN_SLEEP_TRACKID, std.sleep_track_id);
 
                 db.insert(dbHelper_local.TABLE_SLEEP_TRACK_DISTURBANCES, null, values);
         db.close();
+        Log.w("WHJ", "insert sleep_track_disturbance: " + std.toString());
     }
 
 

@@ -25,7 +25,9 @@ import java.util.Calendar;
 import Util.PopupUtil;
 import kr.mintech.sleep.tight.R;
 import kr.mintech.sleep.tight.activities.Local_db.dbHelper_local;
+import kr.mintech.sleep.tight.activities.Local_db.sleep_disturbances;
 import kr.mintech.sleep.tight.activities.Local_db.sleep_rituals;
+import kr.mintech.sleep.tight.activities.Local_db.sleep_track_disturbances;
 import kr.mintech.sleep.tight.activities.Local_db.sleep_track_rituals;
 import kr.mintech.sleep.tight.activities.Local_db.sleep_tracks;
 import kr.mintech.sleep.tight.consts.NumberConst;
@@ -487,6 +489,17 @@ public class AddSleepDiaryActivity extends FragmentActivity implements TimePicke
             }
             sleep_track_rituals slTrRi = new sleep_track_rituals((int) sRitualID, (int) sTrackID);
             dbHelper_local.insertSleepTrackRituals(slTrRi, this);
+        }
+
+        // write *sleep_track_disturbances* into local DB
+        for (String s : Pie.getInst().sleepDisturbArr) {
+            long sDisturbID = dbHelper_local.findSleepDisturbances(s, this);
+            if (sDisturbID == -1) {  // if the ritual is not in DB yet
+                sleep_disturbances sd = new sleep_disturbances(s, uid);
+                sDisturbID = dbHelper_local.insertSleepDisturbances(sd, this);
+            }
+            sleep_track_disturbances slTrDi = new sleep_track_disturbances((int) sDisturbID, (int) sTrackID);
+            dbHelper_local.insertSleepTrackDisturbance(slTrDi, this);
         }
 	}
 
