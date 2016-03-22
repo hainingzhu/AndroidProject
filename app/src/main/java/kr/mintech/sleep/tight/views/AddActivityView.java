@@ -25,6 +25,7 @@ import kr.mintech.sleep.tight.utils.Pie;
 import kr.mintech.sleep.tight.utils.Util;
 import Util.ContextUtil;
 import Util.Logg;
+import Util.SystemUtil;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -217,7 +218,8 @@ public class AddActivityView extends Fragment
             // add activity tracks into activty_tracks table
             dbHelper_local.insertInto_ActivityTrackDB(clickedView.getContext(), (int) ($actionId), strHandleTime, "", actName);
 
-			_controller.reqeustAddActivityTrack((int) $actionId, strHandleTime, null);
+            if (SystemUtil.isConnectNetwork())
+			    _controller.reqeustAddActivityTrack((int) $actionId, strHandleTime, null);
 
 			EventLogger.log("add_activity",
                     "where", "app",
