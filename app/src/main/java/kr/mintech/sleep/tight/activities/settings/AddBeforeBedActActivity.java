@@ -7,6 +7,7 @@ import kr.mintech.sleep.tight.consts.NumberConst;
 import kr.mintech.sleep.tight.controllers.settings.BeforeBedActController;
 import kr.mintech.sleep.tight.listeners.OnRequestEndListener;
 import Util.Logg;
+import Util.SystemUtil;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -62,7 +63,9 @@ public class AddBeforeBedActActivity extends Activity
 						return;
 					}
                     String ritualName = _editActivity.getText().toString();
-					_controller.requestAddBeforeBedAct(ritualName);
+
+                    if (SystemUtil.isConnectNetwork())
+					    _controller.requestAddBeforeBedAct(ritualName);
 
                     // add ritual category into local DB
                     int uid = dbHelper_local.curUserID(AddBeforeBedActActivity.this);
