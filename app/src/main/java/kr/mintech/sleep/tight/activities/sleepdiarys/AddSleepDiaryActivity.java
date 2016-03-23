@@ -22,6 +22,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import Util.SystemUtil;
 import Util.PopupUtil;
 import kr.mintech.sleep.tight.R;
 import kr.mintech.sleep.tight.activities.Local_db.dbHelper_local;
@@ -467,7 +468,9 @@ public class AddSleepDiaryActivity extends FragmentActivity implements TimePicke
 		int awakeDuration = hrAwakeDuration * 60 + minAwakeDuration;
         int sleepduration = (int) (dtWakeTime.getCalTime().getTime().getTime() - dtToBedTime.getCalTime().getTime().getTime());
         sleepduration = sleepduration/60000;
-		_sleepCtrl.requestAddSleepInfo(strToBedTime, _sleepLetency, strWakeUpTime, strOutBedTime, strDiaryDate, sleepQuality, kAwakeCount, awakeDuration,
+
+        if (SystemUtil.isConnectNetwork())
+		    _sleepCtrl.requestAddSleepInfo(strToBedTime, _sleepLetency, strWakeUpTime, strOutBedTime, strDiaryDate, sleepQuality, kAwakeCount, awakeDuration,
 				Pie.getInst().beforeBedActIdArr, Pie.getInst().sleepDisturbIdArr);
 
 

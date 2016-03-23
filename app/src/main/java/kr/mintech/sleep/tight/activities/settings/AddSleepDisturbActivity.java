@@ -7,6 +7,7 @@ import kr.mintech.sleep.tight.consts.NumberConst;
 import kr.mintech.sleep.tight.controllers.settings.EditSleepDisturbController;
 import kr.mintech.sleep.tight.listeners.OnRequestEndListener;
 import Util.Logg;
+import Util.SystemUtil;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -62,7 +63,9 @@ public class AddSleepDisturbActivity extends Activity
 						return;
 					}
                     String disturbName = _editActivity.getText().toString();
-					_controller.requestAddSleepDisturb(disturbName);
+
+                    if (SystemUtil.isConnectNetwork())
+					    _controller.requestAddSleepDisturb(disturbName);
 
                     // add sleep disturbance to local DB
                     int uid = dbHelper_local.curUserID(AddSleepDisturbActivity.this);
