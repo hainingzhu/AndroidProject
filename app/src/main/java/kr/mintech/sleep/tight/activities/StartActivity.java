@@ -68,7 +68,6 @@ public class StartActivity extends Activity {
 
 	@Override
 	protected void onResume() {
-		Log.w("WHJ", "xxxx you!");
 		super.onResume();
 		if (_isKillAppFlag) {
 			finish();
