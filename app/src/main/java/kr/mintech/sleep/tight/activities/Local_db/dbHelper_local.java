@@ -10,6 +10,7 @@ import android.util.Log;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import Util.SystemUtil;
 import kr.mintech.sleep.tight.utils.DateTime;
 
 /**
@@ -104,6 +105,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
     public static final String SLEEP_TRACK_RITUALS_COLUMN_SLEEP_TRACKID = "sleep_track_id";
 
 
+    public static final String TABLE_SYNC_FLAG = "sync_flag";
 
 
     private static final String TABLE_CREATE_USERS = "Create Table users (id integer, " +
@@ -114,33 +116,35 @@ public class dbHelper_local extends SQLiteOpenHelper {
             "wake_up_time TIME[(P)] [WITHOUT TIME ZONE], " +
             "out_bed_time TIME[(P)] [WITHOUT TIME ZONE], sleep_quality NUMERIC(5, 5), awake_count INT, " +
             "total_awake_time integer, sleep_latency integer," +
-            "create_time TIME[(P)] [WITHOUT TIME ZONE], sleepDuration integer);";
+            "create_time TIME[(P)] [WITHOUT TIME ZONE], sleepDuration integer, sync_flag INTEGER default 0);";
 
 
     private static final String TABLE_CREATE_ACTIVITIES = "Create Table activities (id int PRIMARY KEY," +
-            " user_id INTEGER REFERENCES users (id), activity_name TEXT, isHide INTEGER);";
+            " user_id INTEGER REFERENCES users (id), activity_name TEXT, isHide INTEGER, sync_flag INTEGER default 0);";
 
 
     private static final String TABLE_CREATE_ACTIVITY_TRACKS = "Create Table activity_tracks (id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "activity_id INTEGER REFERENCES activities (id),user_id INTEGER REFERENCES users (id)," +
             "record_type TEXT, actionStartedAt TEXT, actionEndedAt TEXT, create_time TEXT," +
-            "activityName TEXT, trackType TEXT, sortPosition INTEGER, color TEXT);";
+            "activityName TEXT, trackType TEXT, sortPosition INTEGER, color TEXT, sync_flag integer default 0);";
 
 
 
 
 
     private static final String TABLE_CREATE_SLEEP_DISTURBANCES = "Create Table sleep_disturbances (id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "disturbance_name TEXT, user_id INTEGER REFERENCES users (id));";
+            "disturbance_name TEXT, user_id INTEGER REFERENCES users (id), sync_flag integer default 0);";
 
     private static final String TABLE_CREATE_SLEEP_RITUALS = "Create Table sleep_rituals (id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "ritual_name TEXT, user_id INTEGER REFERENCES users (id), frequency INTEGER );";
+            "ritual_name TEXT, user_id INTEGER REFERENCES users (id), frequency INTEGER, sync_flag integer default 0 );";
 
     private static final String TABLE_CREATE_SLEEP_TRACK_DISTURBANCES = "Create Table sleep_track_disturbances (id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "sleep_disturbance_id INTEGER REFERENCES sleep_disturbance (id), sleep_track_id INTEGER REFERENCES sleep_tracks (id));";
+            "sleep_disturbance_id INTEGER REFERENCES sleep_disturbance (id), sleep_track_id INTEGER REFERENCES sleep_tracks (id)," +
+            " sync_flag integer default 0);";
 
     private static final String TABLE_CREATE_SLEEP_TRACK_RITUALS = "Create Table sleep_track_rituals (id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "sleep_ritual_id INTEGER REFERENCES sleep_rituals (id), sleep_track_id INTEGER REFERENCES sleep_tracks (id));";
+            "sleep_ritual_id INTEGER REFERENCES sleep_rituals (id), sleep_track_id INTEGER REFERENCES sleep_tracks (id)," +
+            " sync_flag integer default 0);";
 
 
 
@@ -156,6 +160,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+        Log.w("WHJ", "create table!");
         db.execSQL(TABLE_CREATE_USERS);
         db.execSQL(TABLE_CREATE_SLEEP_TRACKS);
         db.execSQL(TABLE_CREATE_ACTIVITIES);
@@ -218,6 +223,8 @@ public class dbHelper_local extends SQLiteOpenHelper {
         values.put(dbHelper_local.ACTIVITIES_COLUMN_USERID, a.user_id);
         values.put(dbHelper_local.ACTIVITIES_COLUMN_ACTIVITY_NAME, a.activity_name);
         values.put(dbHelper_local.ACTIVITIES_COLUMN_ISHIDE, a.isHide);
+        int sync = SystemUtil.isConnectNetwork() ? 1 : 0;
+        values.put(dbHelper_local.TABLE_SYNC_FLAG, sync);
 
         db.insert(dbHelper_local.TABLE_ACTIVITIES, null, values);
         db.close();
@@ -260,6 +267,8 @@ public class dbHelper_local extends SQLiteOpenHelper {
         values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_CREATETIME, aT.create_time);
 
         values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_ACTIVITYNAME, aT.activityName);
+        int sync = SystemUtil.isConnectNetwork() ? 1 : 0;
+        values.put(dbHelper_local.TABLE_SYNC_FLAG, sync);
        // values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_TRACKTYPE, aT.trackType);
        // values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_SORTPOSITION, aT.sortPosition);
        // values.put(dbHelper_local.ACTIVITY_TRACKS_COLUMN_COLOR, aT.color);
@@ -279,6 +288,8 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
         values.put(dbHelper_local.SLEEP_DISTURBANCES_COLUMN_DISTURBANCENAME, sd.disturbance_name);
         values.put(dbHelper_local.SLEEP_DISTURBANCES_COLUMN_USERID, sd.user_id);
+        int sync = SystemUtil.isConnectNetwork() ? 1 : 0;
+        values.put(dbHelper_local.TABLE_SYNC_FLAG, sync);
 
         long sdid = db.insert(dbHelper_local.TABLE_SLEEP_DISTURBANCES, null, values);
         db.close();
@@ -318,6 +329,8 @@ public class dbHelper_local extends SQLiteOpenHelper {
         values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_RITUALNAME, sr.ritual_name);
         values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_USERID, sr.user_id);
         values.put(dbHelper_local.SLEEP_RITUALS_COLUMN_FREQUENCY, sr.frequency);
+        int sync = SystemUtil.isConnectNetwork() ? 1 : 0;
+        values.put(dbHelper_local.TABLE_SYNC_FLAG, sync);
 
         long id = db.insert(dbHelper_local.TABLE_SLEEP_RITUALS, null, values);
         db.close();
@@ -355,6 +368,8 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
         values.put(dbHelper_local.SLEEP_TRACK_RITUALS_COLUMN_RITUAL_ID, str.sleep_ritual_id);
         values.put(dbHelper_local.SLEEP_TRACK_RITUALS_COLUMN_SLEEP_TRACKID, str.sleep_track_id);
+        int sync = SystemUtil.isConnectNetwork() ? 1 : 0;
+        values.put(dbHelper_local.TABLE_SYNC_FLAG, sync);
 
         db.insert(dbHelper_local.TABLE_SLEEP_TRACK_RITUALS, null, values);
         db.close();
@@ -372,8 +387,10 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
         values.put(dbHelper_local.SLEEP_TRACK_DISTURBANCES_COLUMN_DISTURBANCEID, std.sleep_disturbance_id);
         values.put(dbHelper_local.SLEEP_TRACK_DISTURBANCES_COLUMN_SLEEP_TRACKID, std.sleep_track_id);
+        int sync = SystemUtil.isConnectNetwork() ? 1 : 0;
+        values.put(dbHelper_local.TABLE_SYNC_FLAG, sync);
 
-                db.insert(dbHelper_local.TABLE_SLEEP_TRACK_DISTURBANCES, null, values);
+        db.insert(dbHelper_local.TABLE_SLEEP_TRACK_DISTURBANCES, null, values);
         db.close();
         Log.w("WHJ", "insert sleep_track_disturbance: " + std.toString());
     }
@@ -398,6 +415,9 @@ public class dbHelper_local extends SQLiteOpenHelper {
         values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_SLEEP_LATENCY, st.sleep_latency);
         values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_CREATE_TIME, st.create_time);
         values.put(dbHelper_local.SLEEP_TRACKS_COLUMN_SDURATION, st.sleepDuration);
+        int sync = SystemUtil.isConnectNetwork() ? 1 : 0;
+        values.put(dbHelper_local.TABLE_SYNC_FLAG, sync);
+
 
         long id = db.insert(dbHelper_local.TABLE_SLEEP_TRACKS, null, values);
         db.close();
