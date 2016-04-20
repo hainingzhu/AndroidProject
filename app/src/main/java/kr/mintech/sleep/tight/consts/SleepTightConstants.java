@@ -12,6 +12,7 @@ public class SleepTightConstants {
 	
 	public static SimpleDateFormat DayForamt = new SimpleDateFormat("MM/dd");
 	public static SimpleDateFormat NetworkFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'Z");
+    public static SimpleDateFormat SqliteFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 	
 	public static SimpleDateFormat TitleDayFormat = new SimpleDateFormat("MMM dd");
 	public static SimpleDateFormat DayOnlyFormat = new SimpleDateFormat("dd");

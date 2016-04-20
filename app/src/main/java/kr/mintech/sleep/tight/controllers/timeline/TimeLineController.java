@@ -3,6 +3,7 @@ package kr.mintech.sleep.tight.controllers.timeline;
 import java.util.ArrayList;
 
 import kr.mintech.sleep.tight.R;
+import kr.mintech.sleep.tight.activities.Local_db.dbHelper_local;
 import kr.mintech.sleep.tight.bases.BaseController;
 import kr.mintech.sleep.tight.consts.NumberConst;
 import kr.mintech.sleep.tight.listeners.OnRequestEndListener;
@@ -64,7 +65,20 @@ public class TimeLineController extends BaseController
 		_netHelper = new NetHelper(this, "didEndRequest");
 		_netHelper.requestActivityTracks($baseDate, $agoHour);
 	}
-	
+
+    /**
+     * Use local DB to fill in contents
+     * @param baseDate
+     * @param startDate
+     * @param cont
+     */
+    public void requestActivityTracks_fromLocalDB(String baseDate, String startDate, Context cont)
+    {
+        Log.w("WHJ", startDate + "\t" + baseDate);
+        _activityTrackUnits = dbHelper_local.searchActivityTracks(startDate, baseDate, cont);
+        Pie.getInst().activityTrackUnit = new ArrayList<ActivityTrackUnit>(_activityTrackUnits);
+    }
+
 	
 	//Activity Tracks Request
 	public void requestActivityTracksForWidget(String $baseDate, int $agoHour)

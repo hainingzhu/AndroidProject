@@ -34,6 +34,16 @@ public class ActivityTrackUnit
 		recordType = $node.getString("record_type");
 		color = $node.getString("color");
 	}
+
+    public ActivityTrackUnit(int actid, String name, String startAt, String endAt)
+    {
+        activityId = actid;
+        activityName = name;
+        actionStartedAt = startAt;
+        actionEndedAt = endAt;
+        actionStartedAtDateTime = new DateTime(actionStartedAt);
+        actionEndedAtDateTime = new DateTime(actionEndedAt);
+    }
 	
 	public String toString() {
 		return id + ", "+

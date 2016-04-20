@@ -180,7 +180,15 @@ public class AddActivityView extends Fragment
 		String kCurrentDateTimeStr = baseTime.getStringTime(SleepTightConstants.NetworkFormat);
 				
 		// CLEANUP // Logg.w("AddActivityView | loadActivityTracks()", "Base Time : " + kCurrentDateTimeStr);
-		_controller.requestActivityTracks(kCurrentDateTimeStr, NumberConst.ACTIVITYTRACK_REQUEST_DURATION);
+        if (SystemUtil.isConnectNetwork()) {
+            _controller.requestActivityTracks(kCurrentDateTimeStr, NumberConst.ACTIVITYTRACK_REQUEST_DURATION);
+        } else {
+            DateTime backDate = new DateTime(baseTime);
+            backDate.add(Calendar.HOUR, - NumberConst.ACTIVITYTRACK_REQUEST_DURATION);   // go back 48 hours ago
+            String curDateTimeStr = baseTime.getStringTime(SleepTightConstants.NetworkFormat);
+            String backDateTimeStr = backDate.getStringTime(SleepTightConstants.NetworkFormat);
+            _controller.requestActivityTracks_fromLocalDB(curDateTimeStr, backDateTimeStr, this.getActivity());
+        }
 	}
 	
 	private void loadSleepTracks() {
@@ -216,7 +224,7 @@ public class AddActivityView extends Fragment
             Log.w("WHJ", "record activity in local DB");
 
             // add activity tracks into activty_tracks table
-            dbHelper_local.insertInto_ActivityTrackDB(clickedView.getContext(), (int) ($actionId), strHandleTime, "", actName);
+            dbHelper_local.insertInto_ActivityTrackDB(clickedView.getContext(), (int) ($actionId), strHandleTime, strHandleTime, actName);
 
             if (SystemUtil.isConnectNetwork())
 			    _controller.reqeustAddActivityTrack((int) $actionId, strHandleTime, null);
