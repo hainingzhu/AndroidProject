@@ -8,9 +8,11 @@ import android.database.Cursor;
 import android.util.Log;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import Util.SystemUtil;
+import kr.mintech.sleep.tight.units.ActivityTrackUnit;
 import kr.mintech.sleep.tight.utils.DateTime;
 
 /**
@@ -166,7 +168,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
         db.execSQL(TABLE_CREATE_ACTIVITIES);
         db.execSQL(TABLE_CREATE_ACTIVITY_TRACKS);
         db.execSQL(TABLE_CREATE_SLEEP_DISTURBANCES);
-        db.execSQL(TABLE_CREATE_SLEEP_RITUALS );
+        db.execSQL(TABLE_CREATE_SLEEP_RITUALS);
         db.execSQL(TABLE_CREATE_SLEEP_TRACK_DISTURBANCES);
         db.execSQL(TABLE_CREATE_SLEEP_TRACK_RITUALS);
 
@@ -278,7 +280,41 @@ public class dbHelper_local extends SQLiteOpenHelper {
 
     }
 
+    /**
+     * Read from local DB to fill the content in ActivtyView
+     * @param startDate
+     * @param curDate
+     * @param cont
+     * @return
+     */
+    public static ArrayList<ActivityTrackUnit> searchActivityTracks(String startDate, String curDate, Context cont)
+    {
+        ArrayList<ActivityTrackUnit> atus = new ArrayList<>();
 
+        dbHelper_local mdb = new dbHelper_local(cont);
+        SQLiteDatabase db = mdb.getReadableDatabase();
+
+        Cursor res = db.query(TABLE_ACTIVITY_TRACKS, null, String.format("actionStartedAt between '%s' and '%s'", startDate, curDate), null,
+                null, null, null, null);
+        Log.w("WHJ", String.format("Get %d activity tracks", res.getCount()));
+
+        int id = res.getColumnIndex(ACTIVITY_TRACKS_COLUMN_ACTIVITYID);
+        int startAt = res.getColumnIndex(ACTIVITY_TRACKS_COLUMN_STARTTIME);
+        int endAt = res.getColumnIndex(ACTIVITY_TRACKS_COLUMN_ENDTIME);
+        int name = res.getColumnIndex(ACTIVITY_TRACKS_COLUMN_ACTIVITYNAME);
+        res.moveToFirst();
+        while (! res.isAfterLast() )
+        {
+            ActivityTrackUnit atu = new ActivityTrackUnit(res.getInt(id), res.getString(name), res.getString(startAt), res.getString(endAt));
+            atus.add(atu);
+            Log.w("WHJ", atu.activityName + "\t" + atu.actionStartedAt);
+            res.moveToNext();
+        }
+
+        res.close();
+        db.close();
+        return atus;
+    }
 
     public static long insertSleepDisturbances (sleep_disturbances sd, Context cont)
     {
@@ -297,8 +333,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
     }
 
 
-    public static long findSleepDisturbances(String disturbance_name, Context cont)
-    {
+    public static long findSleepDisturbances(String disturbance_name, Context cont) {
         Log.w("WHJ", "function call: findSleepDisturbances()");
         dbHelper_local mdb = new dbHelper_local(cont);
         SQLiteDatabase db = mdb.getReadableDatabase();
@@ -338,8 +373,7 @@ public class dbHelper_local extends SQLiteOpenHelper {
     }
 
 
-    public static long findSleepRituals(String ritual_name, Context cont)
-    {
+    public static long findSleepRituals(String ritual_name, Context cont) {
         Log.w("WHJ", "function call: findSleepRituals()");
         dbHelper_local mdb = new dbHelper_local(cont);
         SQLiteDatabase db = mdb.getReadableDatabase();
